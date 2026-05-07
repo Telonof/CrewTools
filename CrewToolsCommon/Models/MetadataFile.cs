@@ -2,18 +2,17 @@
 
 namespace CrewToolsCommon.Models
 {
-    public class MetadataFile
+    public class MetadataFile : ModFile
     {
-        private readonly string Name, Author, Description, Output;
+        private readonly string Name, Author, Description;
 
         private readonly List<string> Files = [];
 
-        public MetadataFile(string name, string author, string description, string output)
+        public MetadataFile(string name, string author, string description, string output) : base("", output, new XDocument(new XElement("metadata")))
         {
             Name = name;
             Author = author;
             Description = description;
-            Output = output;
         }
 
         public void AddFile(string file)
@@ -21,9 +20,10 @@ namespace CrewToolsCommon.Models
             Files.Add(file);
         }
 
-        public void Serialize()
+        public override Stream Serialize()
         {
             XDocument metadataFile = new XDocument(new XElement("metadata"));
+            MemoryStream stream = new MemoryStream();
 
             //author
             XElement english = new XElement("author");
@@ -54,7 +54,9 @@ namespace CrewToolsCommon.Models
             }
 
             metadataFile.Root.Add(group);
-            File.WriteAllText(Output, metadataFile.ToString());
+
+            metadataFile.Save(stream);
+            return stream;
         }
     }
 }

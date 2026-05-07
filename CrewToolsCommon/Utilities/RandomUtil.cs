@@ -2,7 +2,6 @@
 {
     public class RandomUtil
     {
-
         private static readonly Random Random = new Random(DateTimeOffset.UtcNow.Millisecond);
 
         public static int BetweenInc(int a, int b)

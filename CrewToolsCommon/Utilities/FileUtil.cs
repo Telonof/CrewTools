@@ -13,5 +13,10 @@
             if (Directory.Exists(path))
                 Directory.Delete(path, true);
         }
+
+        public static string GrabExecName()
+        {
+            return Path.GetFileName(Environment.ProcessPath);
+        }
     }
 }

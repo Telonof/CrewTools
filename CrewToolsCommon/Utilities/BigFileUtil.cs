@@ -64,7 +64,7 @@ namespace CrewToolsCommon
 
             var fat = new BigFile
             {
-                Version = 5,
+                Version = packageVersion,
                 Platform = Big.Platform.PC,
                 Unknown74 = 0
             };
@@ -87,14 +87,14 @@ namespace CrewToolsCommon
                         for (int i = 0; i < 4; i++)
                         {
                             if (authorHex.Length <= byteIndex)
-                            {
                                 byteIndex = 0;
-                            }
+
                             result |= (uint)authorHex[byteIndex] << (24 - i * 8);
                             byteIndex++;
                         }
                         entry.author = result;
                     }
+
                     if (packageVersion == 6 && compress)
                         entry.CompressionScheme = Big.CompressionScheme.oodle;
 
@@ -112,6 +112,64 @@ namespace CrewToolsCommon
             {
                 fat.Serialize(output);
             }
+        }
+
+        public static void RepackBigFileStream(Dictionary<string, Stream> entries, Stream datStream, Stream fatStream, string? author = null, int packageVersion = 5, bool compress = true)
+        {
+            byte[]? authorHex = null;
+            int byteIndex = 0;
+            SortedDictionary<ulong, Stream> pendingEntries = [];
+            if (!string.IsNullOrWhiteSpace(author))
+                authorHex = Encoding.UTF8.GetBytes(author);
+
+            foreach (string key in entries.Keys)
+            {
+                var temp = key.ToLowerInvariant();
+                pendingEntries[CRC64.Hash(temp, true)] = entries[key];
+            }
+
+            var fat = new BigFile
+            {
+                Version = packageVersion,
+                Platform = Big.Platform.PC,
+                Unknown74 = 0
+            };
+
+            foreach (var pendingEntry in pendingEntries)
+            {
+                var entry = new Big.Entry
+                {
+                    NameHash = pendingEntry.Key,
+                    Offset = datStream.Position,
+                    author = 0
+                };
+
+                //Ingrain author into dummy values.
+                if (authorHex != null)
+                {
+                    uint result = 0;
+                    for (int i = 0; i < 4; i++)
+                    {
+                        if (authorHex.Length <= byteIndex)
+                            byteIndex = 0;
+
+                        result |= (uint)authorHex[byteIndex] << (24 - i * 8);
+                        byteIndex++;
+                    }
+                    entry.author = result;
+                }
+
+                if (packageVersion == 6 && compress)
+                    entry.CompressionScheme = Big.CompressionScheme.oodle;
+                    
+                Big.EntryCompression.Compress(fat.Platform, ref entry, pendingEntry.Value, compress, datStream);
+                datStream.Seek(datStream.Position.Align(16), SeekOrigin.Begin);
+
+                fat.Entries.Add(entry);
+                pendingEntry.Value.Close();
+            }
+
+            fat.Serialize(fatStream);
         }
     }
 
