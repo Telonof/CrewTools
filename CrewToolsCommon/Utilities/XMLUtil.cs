@@ -1,4 +1,5 @@
-﻿using System.Xml.Linq;
+﻿using CrewToolsCommon.Utilities;
+using System.Xml.Linq;
 
 namespace CrewToolsCommon
 {
@@ -79,13 +80,13 @@ namespace CrewToolsCommon
             XElement element = haystack.Element(needle);
             if (element == null)
             {
-                if (showError) Console.Error.WriteLine($"{needle} not found.");
+                if (showError) Logger.Error($"{needle} not found.");
                 return def;
             }
 
             if (string.IsNullOrWhiteSpace(element.Value))
             {
-                if (showError) Console.Error.WriteLine($"{needle} has empty data.");
+                if (showError) Logger.Error($"{needle} has empty data.");
                 return def;
             }
             
@@ -101,7 +102,7 @@ namespace CrewToolsCommon
 
             if (value.Length != 16)
             {
-                Console.Error.WriteLine($"{needle} is not 16 in length.");
+                Logger.Error($"{needle} is not 16 in length.");
                 return string.Empty;
             }
 
@@ -113,13 +114,13 @@ namespace CrewToolsCommon
             string value = GrabStringOrDefault(haystack, needle);
             if (string.IsNullOrWhiteSpace(value))
             {
-                if (showError) Console.Error.WriteLine($"Defaulting {needle} to {def}.");
+                if (showError) Logger.Error($"Defaulting {needle} to {def}.");
                 return def;
             }
 
             if (!bool.TryParse(value, out bool result))
             {
-                if (showError) Console.Error.WriteLine($"{needle} is not a valid boolean, defaulting to {def}.");
+                if (showError) Logger.Error($"{needle} is not a valid boolean, defaulting to {def}.");
                 return def;
             }
             
@@ -134,7 +135,7 @@ namespace CrewToolsCommon
 
             if (!int.TryParse(value, out int result))
             {
-                Console.Error.WriteLine($"{needle} is not a valid boolean, defaulting to {def}.");
+                Logger.Error($"{needle} is not a valid integer, defaulting to {def}.");
                 return def;
             }
 
@@ -152,7 +153,7 @@ namespace CrewToolsCommon
 
             if (!float.TryParse(value, out float result))
             {
-                Console.Error.WriteLine($"{needle} inside {haystack.Name} not a valid float, defaulting to {def}.");
+                Logger.Error($"{needle} inside {haystack.Name} not a valid float, defaulting to {def}.");
                 return def;
             }
 
@@ -172,7 +173,7 @@ namespace CrewToolsCommon
             string[] coordStrings = value.Split(",");
             if (coordStrings.Length != 3)
             {
-                Console.Error.WriteLine($"{needle} is not formatted with two commas between 3 floats.");
+                Logger.Error($"{needle} is not formatted with two commas between 3 floats.");
                 Environment.Exit(1);
             }
 
@@ -181,7 +182,7 @@ namespace CrewToolsCommon
             {
                 if (!float.TryParse(coordStrings[i], out coords[i]))
                 {
-                    Console.Error.WriteLine($"{coordStrings[i]} is not a valid float.");
+                    Logger.Error($"{coordStrings[i]} is not a valid float.");
                     Environment.Exit(1);
                 }
             }
