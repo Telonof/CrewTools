@@ -51,10 +51,8 @@ namespace CrewToolsCommon.Models
             Edits[depth].Add(XMLUtil.GenerateField("name", fieldName, fieldValue));
         }
 
-        public virtual Stream Serialize()
+        public virtual void Serialize(Stream stream)
         {
-            MemoryStream stream = new MemoryStream();
-
             foreach (string depth in Edits.Keys)
             {
                 XElement editCommand = new XElement("edit");
@@ -72,7 +70,6 @@ namespace CrewToolsCommon.Models
             }
 
             Doc.Save(stream);
-            return stream;
         }
     }
 }

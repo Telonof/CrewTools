@@ -75,7 +75,7 @@ namespace CrewToolsCommon
             return objects;
         }
 
-        public static string GrabStringOrDefault(XElement haystack, string needle, bool showError = false, string def = "")
+        public static string GrabStringOrDefault(XElement haystack, string needle, bool showError = false, string? def = "")
         {
             XElement element = haystack.Element(needle);
             if (element == null)
@@ -163,9 +163,9 @@ namespace CrewToolsCommon
             return result;
         }
 
-        public static float[] GrabCoords(XElement haystack, string needle)
+        public static float[] GrabCoords(XElement haystack, string needle, bool showError = true)
         {
-            string value = GrabStringOrDefault(haystack, needle, true);
+            string value = GrabStringOrDefault(haystack, needle, showError);
 
             if (string.IsNullOrWhiteSpace(value))
                 return [];
@@ -188,6 +188,34 @@ namespace CrewToolsCommon
             }
 
             return coords;
+        }
+
+        /**Only used for checkpoint unlocks**/
+        public static List<uint>? GrabIntegers(XElement haystack, string needle, bool showError = false)
+        {
+            string value = GrabStringOrDefault(haystack, needle, showError, null);
+
+            if (value == null)
+                return null;
+
+            List<uint> integers = [];
+            if (value.Equals("none"))
+                return integers;
+
+            string[] nums = value.Split(",");
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (!uint.TryParse(nums[i], out uint number))
+                {
+                    Logger.Error($"{nums[i]} is not a valid integer.");
+                    continue;
+                }
+
+                integers.Add(number - 1);
+            }
+
+            return integers;
         }
 
         public static float[] GrabAngles(XElement haystack)

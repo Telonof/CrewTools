@@ -3,11 +3,17 @@
     public class Logger
     {
         private const string _path = "log.txt";
-
+        private static readonly List<string> _logs = [];
 
         public static void Clean()
         {
             File.Delete(_path);
+        }
+
+        public static void WriteAndFlush()
+        {
+            File.WriteAllLines(_path, _logs);
+            _logs.Clear();
         }
 
         public static void Info(string message, ConsoleColor color = ConsoleColor.White)
@@ -35,7 +41,7 @@
             string customTime = time.ToString("HH:mm:ss");
 
             message = $"[{customTime}] {message}";
-            File.AppendAllLines(_path, [message]);
+            _logs.Add(message);
             return message;
         }
     }

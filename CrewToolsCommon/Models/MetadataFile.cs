@@ -20,10 +20,9 @@ namespace CrewToolsCommon.Models
             Files.Add(file);
         }
 
-        public override Stream Serialize()
+        public override void Serialize(Stream stream)
         {
             XDocument metadataFile = new XDocument(new XElement("metadata"));
-            MemoryStream stream = new MemoryStream();
 
             //author
             XElement english = new XElement("author");
@@ -56,7 +55,6 @@ namespace CrewToolsCommon.Models
             metadataFile.Root.Add(group);
 
             metadataFile.Save(stream);
-            return stream;
         }
     }
 }
