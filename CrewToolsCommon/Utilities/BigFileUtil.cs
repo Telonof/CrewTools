@@ -124,8 +124,8 @@ namespace CrewToolsCommon
 
             foreach (string key in entries.Keys)
             {
-                var temp = key.ToLowerInvariant();
-                pendingEntries[CRC64.Hash(temp, true)] = entries[key];
+                entries[key].Position = 0;
+                pendingEntries[CRC64.Hash(key.ToLowerInvariant(), true)] = entries[key];
             }
 
             var fat = new BigFile

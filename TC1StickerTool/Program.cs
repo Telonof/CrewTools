@@ -19,9 +19,9 @@ namespace TC1StickerTool
             if (!Directory.Exists("root"))
             {
                 Logger.Error("No root folder found in program folder.");
+                Logger.WriteAndFlush();
                 Console.WriteLine("Press any key to exit.");
                 Console.ReadKey();
-                Logger.WriteAndFlush();
                 return;
             }
 
@@ -114,7 +114,6 @@ namespace TC1StickerTool
                     stream.Write(iconXBT, 0, iconXBT.Length);
 
                 stream.Write(imageData, 0, imageData.Length);
-                stream.Position = 0;
                 packagedFiles.TryAdd(xbtPath, stream);
             }
 
