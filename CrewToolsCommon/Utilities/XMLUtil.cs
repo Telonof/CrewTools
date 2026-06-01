@@ -1,4 +1,5 @@
 ﻿using CrewToolsCommon.Utilities;
+using System.Globalization;
 using System.Xml.Linq;
 
 namespace CrewToolsCommon
@@ -75,10 +76,10 @@ namespace CrewToolsCommon
             return objects;
         }
 
-        public static string GrabStringOrDefault(XElement haystack, string needle, bool showError = false, string? def = "")
+        public static string GrabStringOrDefault(XElement? haystack, string needle, bool showError = false, string? def = "")
         {
-            XElement element = haystack.Element(needle);
-            if (element == null)
+            XElement element = haystack?.Element(needle);
+            if (haystack == null || element == null)
             {
                 if (showError) Logger.Error($"{needle} not found.");
                 return def;
@@ -93,10 +94,9 @@ namespace CrewToolsCommon
             return element.Value;
         }
 
-        public static string GrabIDHex(XElement haystack, string needle, bool showError = false)
+        public static string GrabIDHex(XElement? haystack, string needle, bool showError = false)
         {
             string value = GrabStringOrDefault(haystack, needle, showError);
-
             if (string.IsNullOrWhiteSpace(value))
                 return string.Empty;
 
@@ -109,7 +109,7 @@ namespace CrewToolsCommon
             return value;
         }
 
-        public static bool GrabBoolOrDefault(XElement haystack, string needle, bool def = false, bool showError = false)
+        public static bool GrabBoolOrDefault(XElement? haystack, string needle, bool def = false, bool showError = false)
         {
             string value = GrabStringOrDefault(haystack, needle);
             if (string.IsNullOrWhiteSpace(value))
@@ -127,13 +127,13 @@ namespace CrewToolsCommon
             return result;
         }
 
-        public static int GrabIntOrDefault(XElement haystack, string needle, int def = 0, bool noNegative = false)
+        public static int GrabIntOrDefault(XElement? haystack, string needle, int def = 0, bool noNegative = false)
         {
             string value = GrabStringOrDefault(haystack, needle);
             if (string.IsNullOrWhiteSpace(value))
                 return def;
 
-            if (!int.TryParse(value, out int result))
+            if (!int.TryParse(value, CultureInfo.InvariantCulture, out int result))
             {
                 Logger.Error($"{needle} is not a valid integer, defaulting to {def}.");
                 return def;
@@ -145,13 +145,13 @@ namespace CrewToolsCommon
             return result;
         }
 
-        public static float GrabFloatOrDefault(XElement haystack, string needle, float def = 0, bool noNegative = false)
+        public static float GrabFloatOrDefault(XElement? haystack, string needle, float def = 0, bool noNegative = false)
         {
             string value = GrabStringOrDefault(haystack, needle);
             if (string.IsNullOrWhiteSpace(value))
                 return def;
 
-            if (!float.TryParse(value, out float result))
+            if (!float.TryParse(value, CultureInfo.InvariantCulture, out float result))
             {
                 Logger.Error($"{needle} inside {haystack.Name} not a valid float, defaulting to {def}.");
                 return def;
@@ -163,7 +163,7 @@ namespace CrewToolsCommon
             return result;
         }
 
-        public static float[] GrabCoords(XElement haystack, string needle, bool showError = true)
+        public static float[] GrabCoords(XElement? haystack, string needle, bool showError = true)
         {
             string value = GrabStringOrDefault(haystack, needle, showError);
 
@@ -174,24 +174,23 @@ namespace CrewToolsCommon
             if (coordStrings.Length != 3)
             {
                 Logger.Error($"{needle} is not formatted with two commas between 3 floats.");
-                Environment.Exit(1);
+                return [];
             }
 
             float[] coords = new float[3];
             for (int i = 0; i < 3; i++)
             {
-                if (!float.TryParse(coordStrings[i], out coords[i]))
+                if (!float.TryParse(coordStrings[i], CultureInfo.InvariantCulture, out coords[i]))
                 {
                     Logger.Error($"{coordStrings[i]} is not a valid float.");
-                    Environment.Exit(1);
+                    return [];
                 }
             }
 
             return coords;
         }
 
-        /**Only used for checkpoint unlocks**/
-        public static List<uint>? GrabIntegers(XElement haystack, string needle, bool showError = false)
+        public static List<uint>? GrabIntegers(XElement haystack, string needle, uint modifier = 0, bool showError = false)
         {
             string value = GrabStringOrDefault(haystack, needle, showError, null);
 
@@ -206,13 +205,13 @@ namespace CrewToolsCommon
 
             for (int i = 0; i < nums.Length; i++)
             {
-                if (!uint.TryParse(nums[i], out uint number))
+                if (!uint.TryParse(nums[i], CultureInfo.InvariantCulture, out uint number))
                 {
                     Logger.Error($"{nums[i]} is not a valid integer.");
                     continue;
                 }
 
-                integers.Add(number - 1);
+                integers.Add(number - modifier);
             }
 
             return integers;
