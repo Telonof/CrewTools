@@ -1,0 +1,1664 @@
+Here is a list of AI behaviors to use under <behavior> for takedown vehicles or race bots, this does not include every setting associated with the bots, just the most prominent.
+Catchup = rubberband
+{
+  "602D000000000000": {
+    "skillLevel": 1,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 1,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "6B27840700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 1,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": false,
+    "mustAvoidTraffic": false,
+    "avoidsSafety": false
+  },
+  "4161440700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 1,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "A1DA470700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 0.9,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "A4F0470700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 0.825,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "607A840700000000": {
+    "skillLevel": 0.75,
+    "maxSpeed": 225,
+    "accelerationRatioToPlayer": 0.45,
+    "reactionTime": 0.12,
+    "anticipationTime": 0.12,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "37B28E0700000000": {
+    "skillLevel": 0.75,
+    "maxSpeed": 375,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.05,
+    "anticipationTime": 0.1,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "4EB28E0700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 375,
+    "accelerationRatioToPlayer": 1,
+    "reactionTime": 0.05,
+    "anticipationTime": 0.1,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "C01D900700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 0.845,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": true,
+    "mustAvoidTraffic": false,
+    "avoidsSafety": false
+  },
+  "E7CF160000000000": {
+    "skillLevel": 1,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 1,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "09D3160000000000": {
+    "skillLevel": 1,
+    "maxSpeed": 120,
+    "accelerationRatioToPlayer": 1,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "C52A920400000000": {
+    "skillLevel": 1,
+    "maxSpeed": 150,
+    "accelerationRatioToPlayer": 1,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "358A9A0200000000": {
+    "skillLevel": 1,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 1,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "92899A0200000000": {
+    "skillLevel": 1,
+    "maxSpeed": 375,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "8BFD110000000000": {
+    "skillLevel": 0.75,
+    "maxSpeed": 375,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.05,
+    "anticipationTime": 0.1,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "810B840700000000": {
+    "skillLevel": 0.625,
+    "maxSpeed": 375,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.05,
+    "anticipationTime": 0.05,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "820B840700000000": {
+    "skillLevel": 0.875,
+    "maxSpeed": 375,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.05,
+    "anticipationTime": 0.15,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "9E23840700000000": {
+    "skillLevel": 0.5,
+    "maxSpeed": 375,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "9D12850700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 375,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.05,
+    "anticipationTime": 0.2,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "52FC860700000000": {
+    "skillLevel": 0.75,
+    "maxSpeed": 375,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "7AC88E0700000000": {
+    "skillLevel": 0.5,
+    "maxSpeed": 375,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "7BC88E0700000000": {
+    "skillLevel": 0.625,
+    "maxSpeed": 375,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.05,
+    "anticipationTime": 0.05,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "5E78920700000000": {
+    "skillLevel": 1.5,
+    "maxSpeed": 375,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.05,
+    "anticipationTime": 0.15,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "5F78920700000000": {
+    "skillLevel": 0.75,
+    "maxSpeed": 375,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.05,
+    "anticipationTime": 0.1,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "6078920700000000": {
+    "skillLevel": 0.625,
+    "maxSpeed": 375,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.05,
+    "anticipationTime": 0.05,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "368A9A0200000000": {
+    "skillLevel": 1,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 0.375,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "30E6110000000000": {
+    "skillLevel": 1,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.25,
+    "anticipationTime": 0.3,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "94899A0200000000": {
+    "skillLevel": 0.75,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.25,
+    "anticipationTime": 0.3,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "D323840700000000": {
+    "skillLevel": 0.5,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.25,
+    "anticipationTime": 0.3,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "D423840700000000": {
+    "skillLevel": 0.875,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.25,
+    "anticipationTime": 0.3,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "240F850700000000": {
+    "skillLevel": 0.625,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.25,
+    "anticipationTime": 0.3,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "250F850700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.25,
+    "anticipationTime": 0.3,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "B01B870700000000": {
+    "skillLevel": 10,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 1,
+    "reactionTime": 0.25,
+    "anticipationTime": 0.3,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "168A8E0700000000": {
+    "skillLevel": 1.75,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.2,
+    "anticipationTime": 0.2,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "068D8E0700000000": {
+    "skillLevel": 10,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 1,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "F0F38F0700000000": {
+    "skillLevel": 0.625,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.35,
+    "anticipationTime": 0.45,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "F1F38F0700000000": {
+    "skillLevel": 0.875,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.35,
+    "anticipationTime": 0.45,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "F2F38F0700000000": {
+    "skillLevel": 0.75,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.35,
+    "anticipationTime": 0.45,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "F3F38F0700000000": {
+    "skillLevel": 0.5,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.35,
+    "anticipationTime": 0.45,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "F4F38F0700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.35,
+    "anticipationTime": 0.45,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "F5F38F0700000000": {
+    "skillLevel": 0.625,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.5,
+    "anticipationTime": 0.6,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "F6F38F0700000000": {
+    "skillLevel": 0.875,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.5,
+    "anticipationTime": 0.6,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "F7F38F0700000000": {
+    "skillLevel": 0.75,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.5,
+    "anticipationTime": 0.6,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "F8F38F0700000000": {
+    "skillLevel": 0.5,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.5,
+    "anticipationTime": 0.6,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "F9F38F0700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.5,
+    "anticipationTime": 0.6,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "01F48F0700000000": {
+    "skillLevel": 1.75,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.35,
+    "anticipationTime": 0.35,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "02F48F0700000000": {
+    "skillLevel": 1.75,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.5,
+    "anticipationTime": 0.5,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "F085860700000000": {
+    "skillLevel": 0.875,
+    "maxSpeed": 150,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 15,
+    "anticipationTime": 0,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "106E870700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 155,
+    "accelerationRatioToPlayer": 0.375,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "C4EF8F0700000000": {
+    "skillLevel": 0.875,
+    "maxSpeed": 160,
+    "accelerationRatioToPlayer": 0.18,
+    "reactionTime": 15,
+    "anticipationTime": 0,
+    "hasCatchup": true,
+    "mustAvoidTraffic": false,
+    "avoidsSafety": false
+  },
+  "441A870700000000": {
+    "skillLevel": 0.85,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 0.375,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "FBF38F0700000000": {
+    "skillLevel": 0.85,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 0.375,
+    "reactionTime": 0.3,
+    "anticipationTime": 0.3,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "FCF38F0700000000": {
+    "skillLevel": 0.85,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 0.375,
+    "reactionTime": 0.6,
+    "anticipationTime": 0.6,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "2E1F900700000000": {
+    "skillLevel": 1.75,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.35,
+    "anticipationTime": 0.35,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "2F1F900700000000": {
+    "skillLevel": 0.75,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.25,
+    "anticipationTime": 0.3,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "301F900700000000": {
+    "skillLevel": 0.5,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.35,
+    "anticipationTime": 0.3,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "311F900700000000": {
+    "skillLevel": 0.875,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.35,
+    "anticipationTime": 0.35,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "321F900700000000": {
+    "skillLevel": 0.625,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.35,
+    "anticipationTime": 0.35,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "331F900700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.25,
+    "anticipationTime": 0.3,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "341F900700000000": {
+    "skillLevel": 10,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 1,
+    "reactionTime": 0.25,
+    "anticipationTime": 0.3,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "351F900700000000": {
+    "skillLevel": 1.75,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.2,
+    "anticipationTime": 0.2,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "361F900700000000": {
+    "skillLevel": 10,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 1,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "371F900700000000": {
+    "skillLevel": 0.625,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.35,
+    "anticipationTime": 0.45,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "381F900700000000": {
+    "skillLevel": 0.875,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.35,
+    "anticipationTime": 0.45,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "391F900700000000": {
+    "skillLevel": 0.75,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.35,
+    "anticipationTime": 0.45,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "3A1F900700000000": {
+    "skillLevel": 0.5,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.35,
+    "anticipationTime": 0.45,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "3B1F900700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.35,
+    "anticipationTime": 0.45,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "3C1F900700000000": {
+    "skillLevel": 0.625,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.5,
+    "anticipationTime": 0.6,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "3D1F900700000000": {
+    "skillLevel": 0.875,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.5,
+    "anticipationTime": 0.6,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "3E1F900700000000": {
+    "skillLevel": 0.75,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.5,
+    "anticipationTime": 0.6,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "3F1F900700000000": {
+    "skillLevel": 0.5,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.5,
+    "anticipationTime": 0.6,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "401F900700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.5,
+    "anticipationTime": 0.6,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "411F900700000000": {
+    "skillLevel": 1.75,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.35,
+    "anticipationTime": 0.35,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "421F900700000000": {
+    "skillLevel": 1.75,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.5,
+    "anticipationTime": 0.5,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "551F900700000000": {
+    "skillLevel": 1.5,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.5,
+    "anticipationTime": 0.5,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "561F900700000000": {
+    "skillLevel": 0.75,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.25,
+    "anticipationTime": 0.3,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "571F900700000000": {
+    "skillLevel": 0.5,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.5,
+    "anticipationTime": 0.3,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "581F900700000000": {
+    "skillLevel": 0.875,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.5,
+    "anticipationTime": 0.5,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "591F900700000000": {
+    "skillLevel": 0.625,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.5,
+    "anticipationTime": 0.5,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "5A1F900700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.25,
+    "anticipationTime": 0.3,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "5B1F900700000000": {
+    "skillLevel": 10,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 1,
+    "reactionTime": 0.25,
+    "anticipationTime": 0.3,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "5C1F900700000000": {
+    "skillLevel": 1.75,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.2,
+    "anticipationTime": 0.2,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "5D1F900700000000": {
+    "skillLevel": 10,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 1,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "5E1F900700000000": {
+    "skillLevel": 0.625,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.35,
+    "anticipationTime": 0.45,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "5F1F900700000000": {
+    "skillLevel": 0.875,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.35,
+    "anticipationTime": 0.45,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "601F900700000000": {
+    "skillLevel": 0.75,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.35,
+    "anticipationTime": 0.45,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "611F900700000000": {
+    "skillLevel": 0.5,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.35,
+    "anticipationTime": 0.45,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "621F900700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.35,
+    "anticipationTime": 0.45,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "631F900700000000": {
+    "skillLevel": 0.625,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.5,
+    "anticipationTime": 0.6,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "641F900700000000": {
+    "skillLevel": 0.875,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.5,
+    "anticipationTime": 0.6,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "651F900700000000": {
+    "skillLevel": 0.75,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.5,
+    "anticipationTime": 0.6,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "661F900700000000": {
+    "skillLevel": 0.5,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.5,
+    "anticipationTime": 0.6,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "671F900700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.5,
+    "anticipationTime": 0.6,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "681F900700000000": {
+    "skillLevel": 1.75,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.35,
+    "anticipationTime": 0.35,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "691F900700000000": {
+    "skillLevel": 1.75,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.5,
+    "anticipationTime": 0.5,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "6A1F900700000000": {
+    "skillLevel": 1.25,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.75,
+    "anticipationTime": 0.75,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "6B1F900700000000": {
+    "skillLevel": 0.75,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.25,
+    "anticipationTime": 0.3,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "6C1F900700000000": {
+    "skillLevel": 0.5,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.75,
+    "anticipationTime": 0.3,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "6D1F900700000000": {
+    "skillLevel": 0.875,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.75,
+    "anticipationTime": 0.75,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "6E1F900700000000": {
+    "skillLevel": 0.625,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.75,
+    "anticipationTime": 0.75,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "6F1F900700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.25,
+    "anticipationTime": 0.3,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "701F900700000000": {
+    "skillLevel": 10,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 1,
+    "reactionTime": 0.25,
+    "anticipationTime": 0.3,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "711F900700000000": {
+    "skillLevel": 1.75,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.2,
+    "anticipationTime": 0.2,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "721F900700000000": {
+    "skillLevel": 10,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 1,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "731F900700000000": {
+    "skillLevel": 0.625,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.35,
+    "anticipationTime": 0.45,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "741F900700000000": {
+    "skillLevel": 0.875,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.35,
+    "anticipationTime": 0.45,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "751F900700000000": {
+    "skillLevel": 0.75,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.35,
+    "anticipationTime": 0.45,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "761F900700000000": {
+    "skillLevel": 0.5,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.35,
+    "anticipationTime": 0.45,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "771F900700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.35,
+    "anticipationTime": 0.45,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "781F900700000000": {
+    "skillLevel": 0.625,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.5,
+    "anticipationTime": 0.6,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "791F900700000000": {
+    "skillLevel": 0.875,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.5,
+    "anticipationTime": 0.6,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "7A1F900700000000": {
+    "skillLevel": 0.75,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.5,
+    "anticipationTime": 0.6,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "7B1F900700000000": {
+    "skillLevel": 0.5,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.5,
+    "anticipationTime": 0.6,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "7C1F900700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.5,
+    "anticipationTime": 0.6,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "7D1F900700000000": {
+    "skillLevel": 1.75,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.35,
+    "anticipationTime": 0.35,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "7E1F900700000000": {
+    "skillLevel": 1.75,
+    "maxSpeed": 200,
+    "accelerationRatioToPlayer": 0.35,
+    "reactionTime": 0.5,
+    "anticipationTime": 0.5,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "378A9A0200000000": {
+    "skillLevel": 1,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 1,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "5EB0940700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 0.8,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "2FB1940700000000": {
+    "skillLevel": 2,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 1,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "78B3940700000000": {
+    "skillLevel": 0.75,
+    "maxSpeed": 180,
+    "accelerationRatioToPlayer": 1,
+    "reactionTime": 0.1,
+    "anticipationTime": 0.1,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "09D0D80400000000": {
+    "skillLevel": 1,
+    "maxSpeed": 110,
+    "accelerationRatioToPlayer": 0.45,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "5AF2850700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 225,
+    "accelerationRatioToPlayer": 0.45,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "FA75840700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 275,
+    "accelerationRatioToPlayer": 0,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "5D25850700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 0.45,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "5392850700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 145,
+    "accelerationRatioToPlayer": 0.45,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "9F6A8E0700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 1,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "58C3920700000000": {
+    "skillLevel": 2,
+    "maxSpeed": 275,
+    "accelerationRatioToPlayer": 0,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": true,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "F388A30200000000": {
+    "skillLevel": 1,
+    "maxSpeed": 100,
+    "accelerationRatioToPlayer": 1,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "B8CA000300000000": {
+    "skillLevel": 1,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 1,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "B3CC000300000000": {
+    "skillLevel": 1,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 1,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "B4CC000300000000": {
+    "skillLevel": 1,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 1,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "BAD1000300000000": {
+    "skillLevel": 1,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 0.375,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "98FF0F0300000000": {
+    "skillLevel": 0.5,
+    "maxSpeed": 225,
+    "accelerationRatioToPlayer": 0.165,
+    "reactionTime": 0.075,
+    "anticipationTime": 0.15,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "2A2B4B0400000000": {
+    "skillLevel": 0.9,
+    "maxSpeed": 225,
+    "accelerationRatioToPlayer": 0.165,
+    "reactionTime": 0.075,
+    "anticipationTime": 0.15,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "64A18D0700000000": {
+    "skillLevel": 0.9,
+    "maxSpeed": 225,
+    "accelerationRatioToPlayer": 0.15,
+    "reactionTime": 0.075,
+    "anticipationTime": 0.15,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "65A18D0700000000": {
+    "skillLevel": 0.9,
+    "maxSpeed": 180,
+    "accelerationRatioToPlayer": 0.1,
+    "reactionTime": 0.075,
+    "anticipationTime": 0.15,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "66A18D0700000000": {
+    "skillLevel": 0.9,
+    "maxSpeed": 260,
+    "accelerationRatioToPlayer": 0.2,
+    "reactionTime": 0.075,
+    "anticipationTime": 0.15,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "67A18D0700000000": {
+    "skillLevel": 0.9,
+    "maxSpeed": 270,
+    "accelerationRatioToPlayer": 0.25,
+    "reactionTime": 0.075,
+    "anticipationTime": 0.15,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "2B2B4B0400000000": {
+    "skillLevel": 0.925,
+    "maxSpeed": 225,
+    "accelerationRatioToPlayer": 0.165,
+    "reactionTime": 0.075,
+    "anticipationTime": 0.15,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "68A18D0700000000": {
+    "skillLevel": 0.925,
+    "maxSpeed": 260,
+    "accelerationRatioToPlayer": 0.2,
+    "reactionTime": 0.075,
+    "anticipationTime": 0.15,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "69A18D0700000000": {
+    "skillLevel": 0.925,
+    "maxSpeed": 180,
+    "accelerationRatioToPlayer": 0.1,
+    "reactionTime": 0.075,
+    "anticipationTime": 0.15,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "6AA18D0700000000": {
+    "skillLevel": 0.925,
+    "maxSpeed": 225,
+    "accelerationRatioToPlayer": 0.15,
+    "reactionTime": 0.075,
+    "anticipationTime": 0.15,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "6BA18D0700000000": {
+    "skillLevel": 0.925,
+    "maxSpeed": 270,
+    "accelerationRatioToPlayer": 0.25,
+    "reactionTime": 0.075,
+    "anticipationTime": 0.15,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "2C2B4B0400000000": {
+    "skillLevel": 0.95,
+    "maxSpeed": 225,
+    "accelerationRatioToPlayer": 0.165,
+    "reactionTime": 0.075,
+    "anticipationTime": 0.15,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "6CA18D0700000000": {
+    "skillLevel": 0.95,
+    "maxSpeed": 260,
+    "accelerationRatioToPlayer": 0.2,
+    "reactionTime": 0.075,
+    "anticipationTime": 0.15,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "6DA18D0700000000": {
+    "skillLevel": 0.95,
+    "maxSpeed": 180,
+    "accelerationRatioToPlayer": 0.1,
+    "reactionTime": 0.075,
+    "anticipationTime": 0.15,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "6EA18D0700000000": {
+    "skillLevel": 0.95,
+    "maxSpeed": 225,
+    "accelerationRatioToPlayer": 0.15,
+    "reactionTime": 0.075,
+    "anticipationTime": 0.15,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "6FA18D0700000000": {
+    "skillLevel": 0.95,
+    "maxSpeed": 270,
+    "accelerationRatioToPlayer": 0.25,
+    "reactionTime": 0.075,
+    "anticipationTime": 0.15,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "2D2B4B0400000000": {
+    "skillLevel": 0.975,
+    "maxSpeed": 225,
+    "accelerationRatioToPlayer": 0.165,
+    "reactionTime": 0.075,
+    "anticipationTime": 0.15,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "70A18D0700000000": {
+    "skillLevel": 0.975,
+    "maxSpeed": 260,
+    "accelerationRatioToPlayer": 0.2,
+    "reactionTime": 0.075,
+    "anticipationTime": 0.15,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "71A18D0700000000": {
+    "skillLevel": 0.975,
+    "maxSpeed": 180,
+    "accelerationRatioToPlayer": 0.1,
+    "reactionTime": 0.075,
+    "anticipationTime": 0.15,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "72A18D0700000000": {
+    "skillLevel": 0.975,
+    "maxSpeed": 225,
+    "accelerationRatioToPlayer": 0.15,
+    "reactionTime": 0.075,
+    "anticipationTime": 0.15,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "73A18D0700000000": {
+    "skillLevel": 0.975,
+    "maxSpeed": 270,
+    "accelerationRatioToPlayer": 0.25,
+    "reactionTime": 0.075,
+    "anticipationTime": 0.15,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "2E2B4B0400000000": {
+    "skillLevel": 1,
+    "maxSpeed": 225,
+    "accelerationRatioToPlayer": 0.165,
+    "reactionTime": 0.075,
+    "anticipationTime": 0.15,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "74A18D0700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 260,
+    "accelerationRatioToPlayer": 0.2,
+    "reactionTime": 0.075,
+    "anticipationTime": 0.15,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "75A18D0700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 180,
+    "accelerationRatioToPlayer": 0.1,
+    "reactionTime": 0.075,
+    "anticipationTime": 0.15,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "76A18D0700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 225,
+    "accelerationRatioToPlayer": 0.15,
+    "reactionTime": 0.075,
+    "anticipationTime": 0.15,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "77A18D0700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 270,
+    "accelerationRatioToPlayer": 0.25,
+    "reactionTime": 0.075,
+    "anticipationTime": 0.15,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "1D20900700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 205,
+    "accelerationRatioToPlayer": 0.375,
+    "reactionTime": 0.075,
+    "anticipationTime": 0.15,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": true
+  },
+  "19A0940700000000": {
+    "skillLevel": 2,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 0.5,
+    "reactionTime": 0.075,
+    "anticipationTime": 1,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "76A2940700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 0.375,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "1FA3940700000000": {
+    "skillLevel": 1.5,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 0.375,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "B5AB940700000000": {
+    "skillLevel": 2,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 0.5,
+    "reactionTime": 0.2,
+    "anticipationTime": 1,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "202C840700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 1,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "F969850700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 1,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  },
+  "89A88D0700000000": {
+    "skillLevel": 1,
+    "maxSpeed": 400,
+    "accelerationRatioToPlayer": 1,
+    "reactionTime": 0,
+    "anticipationTime": 0,
+    "hasCatchup": false,
+    "mustAvoidTraffic": true,
+    "avoidsSafety": false
+  }
+}

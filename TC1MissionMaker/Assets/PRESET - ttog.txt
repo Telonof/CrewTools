@@ -1,0 +1,14 @@
+These are a few three two one go (ttog)/faction intros you can use, anything not intended is here only for testing.
+
+615E870700000000 - Just the 321go, no cutscene bringing the cars into position.
+705E870700000000 - Slightly different 321go
+BDB4110000000000 - Slight fly around of the car with no timer on screen.
+F9B6110000000000 - NOT INTENDED: Two static cameras and an 8 second pause before letting you move, no timer on screen.
+95A31E0000000000 - NOT INTENDED: Fly around the car, pause for 5 second, no timer on screen.
+5BD86A0700000000 - NOT INTENDED: Finishing animation.
+394F870700000000 - Generic PVP intro
+ED54870700000000 - PVP start high above
+EE54870700000000 - PVP start from the right
+EF54870700000000 - PVP start from the left
+F054870700000000 - PVP fly backwards from the cars
+1CE8930700000000 - Drift Trial 321go

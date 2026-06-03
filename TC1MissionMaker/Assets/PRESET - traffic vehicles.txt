@@ -1,0 +1,84 @@
+These are a list of traffic cars you can set as a loan car for the player to drive, as a car for the ai to drive, or as a prop placed into the mission.
+NOTE: Some of these will only work as a ai driver/prop or will not load at all. Most of these won't also be competitive as a racing bot.
+
+ID - Name mapping provided by Charles Jericho.
+
+PRE WR CARS
+---------------------------------------------
+2000s Midsize Sedan: E126020000000000
+2010s Compact Sedan: 4951160000000000
+70s Sedan/Wagon: F67584070000000
+80s Wagon: F67584070000000
+Dodge Charger SRT8: 8D79CA0300000000
+Dodge Durango: 4072C10000000000
+Ford Focus: 4C48AD0200000000
+Ford Crown Victoria: AB72C40000000000
+Ford Crown Victoria Taxi: 82998D0700000000
+Ford Explorer: C5CCEE0000000000
+Ford Taurus SHO: B849B10200000000
+Ford Mustang GT: FD80B50000000000
+Chevrolet Camaro SS: 575AC10300000000
+Chevrolet Silverado: 66ADEC0300000000
+Minivan: 4B51160000000000
+Van: E65F080000000000
+Compact Van: 0FF6F50400000000
+Van Doorn Atlus (Step Van): 5832190000000000
+ASYM Desanne Taxi: 083E100000000000
+Sports Car: 2D048B0400000000
+Semi Truck (avoid using, spawns incorrectly): 00880F0000000000
+Medium Duty Truck: 0C72110000000000
+Heavy Duty Truck (avoid using, spawns incorrectly): 9836230400000000
+Pickup (avoid using, rollbar glitch): 47B5010000000000
+Caisson Fairview (City Bus): BF9A100000000000
+Caisson Elementary C (School/Prison Bus): 22B9AA0200000000
+Tour Bus (avoid using, spawns incorrectly): EB372B0400000000
+Motorhome: BEF4780400000000
+Limousine: 4D6E610400000000
+Ambulance: C052840700000000
+Firetruck: D21C840700000000
+Tractor: DF60080000000000
+Harvester: FAAB0A0000000000
+
+
+GOON CARS
+---------------------------------------------
+2000s Midsize Sedan Goon: F67584070000000
+Pickup Goon (avoid using, rollbar glitch): 3BF1850700000000
+
+POLICE CARS
+---------------------------------------------
+Ford Crown Victoria Police: AFA9840700000000
+Dodge Charger SRT8 Police: AAA9840700000000
+Ford F-150 Raptor Police: B4A9840700000000
+Chevrolet Corvette ZR1 Police: 296A85070000000
+
+
+WR CARS
+---------------------------------------------
+Bogen 200 (Supermini): 4D0B940700000000
+Sumitzu Auto Sculptor 2.5R (Liftback): 7013940700000000
+Nakahawa Motors Lithium SP (Boxy hatchback): 580D940700000000
+Global Motors Woodie (70s Wagon): 51E8930700000000
+Centaurus Talos (Crossover): 33B5930700000000
+Dodge Charger SRT8: B0B1930700000000
+Dodge Durango: F0AD930700000000
+Ford Focus: 10E7930700000000
+Ford Crown Victoria: BDE3930700000000
+Ford Explorer: 8BE4930700000000
+Ford Taurus SHO: 71B0930700000000
+Chevrolet Camaro SS: 4CE8930700000000
+Chevrolet Silverado: 9FE3930700000000
+Minivan: B0E7930700000000
+Landrock Motors Landrock Van 2500 (Van): 75A0930700000000
+Van Doorn Atlus (Step Van): B9E8930700000000
+Landrock Motors Relegator (Ice Cream Van): 1314940700000000
+Matarhorn Trucks Convoy (Armored truck): 29E5930700000000
+Semi Truck (avoid using, spawns incorrectly): F2AF930700000000
+Medium Duty Truck: 9E14940700000000
+Caisson Fairview (City Bus): 540C940700000000
+Caisson Elementary C (School Bus): 3B13940700000000
+Caisson Elementary C (Prison Bus): 8B0D940700000000
+Coach Bus: 70AF930700000000
+Motorhome: D814940700000000
+Ambulance: 19E8930700000000
+Firetruck: 720C940700000000

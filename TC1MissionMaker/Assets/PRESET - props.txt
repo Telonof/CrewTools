@@ -1,0 +1,53 @@
+Here is a list of random props that can be placed in the world.
+
+[Yellow Guiding Arrows]
+7B84570600000000 - Arrow 1
+7C84570600000000 - Arrow 2
+7D84570600000000 - Arrow 3
+BD90570600000000 - Arrow 4
+7E84570600000000 - Arrow 5
+7F84570600000000 - Arrow 6
+0DD7570600000000 - Arrow 7
+
+[Ramps]
+1931940700000000 - Long width orange ramp with black outline.
+A13D940700000000 - WR ramp 15 length 10 height
+A33D940700000000 - WR ramp 15 length 15 height
+A43D940700000000 - WR ramp 15 length 20 height
+A53D940700000000 - WR ramp 15 length 25 height
+A63D940700000000 - WR ramp 15 length 30 height
+A73D940700000000 - WR ramp 15 length 35 height
+A83D940700000000 - WR ramp 15 length 40 height
+A93D940700000000 - WR Long width ramp 15 length 10 height
+57C7920700000000 - ramp 15 length 10 height
+55C7920700000000 - ramp 15 length 15 height
+5F31930700000000 - ramp 15 length 20 height
+54C7920700000000 - ramp 15 legnth 25 height
+53C7920700000000 - ramp 15 length 30 height
+52C7920700000000 - ramp 15 length 35 height
+1DC7920700000000 - ramp 15 length 40 height
+
+[Container]
+5CC7920700000000 - Green warehouse container
+5DC7920700000000 - Red warehouse container
+5FC7920700000000 - Gray warehouse container
+64C7920700000000 - Blue warehouse container
+
+[Barriers]
+7594850700000000 - Big concrete wall
+67FDF00100000000 - Do not cross barrier
+489A8D0700000000 - Breakable caution fence.
+
+[Planes]
+081A850700000000 - Movable jumbo jet
+BC24840700000000 - Larger jumbo jet
+5964850700000000 - Blue floatplane
+3264850700000000 - Red floatplane
+ED66850700000000 - Blue seaplane
+EE66850700000000 - Red seaplane
+
+[Misc]
+943A940700000000 - Big WR tower with logos
+A8F8850700000000 - Movable Scaffolding
+669E850700000000 - Golf buggy
+5DF7830700000000 - Front of train
