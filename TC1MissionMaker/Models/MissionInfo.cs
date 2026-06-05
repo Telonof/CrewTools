@@ -65,7 +65,10 @@ internal class MissionInfo
         //Test for valid spawnPosition
         float[] coords = XMLUtil.GrabCoords(missionData, "spawnPosition");
         if (coords.Length == 0)
+        {
+            Logger.Error("Mission {id} has an invalid spawnPosition.");
             return false;
+        }
 
         Path = $"project\\road66\\generated\\zones\\Mission_{InternalName}.entities.bin";
         Id = CRC64.Hash(internalModName + id) & 0x00FFFFFFFFFF0000;
