@@ -289,7 +289,6 @@ internal abstract class Mission
         AddField(spawnpointNode, "WaypointPerLine", BitConverter.GetBytes(XMLUtil.GrabIntOrDefault(spawnGridData, "maxCarColumns", 2, true)));
         AddField(spawnpointNode, "WidthCompute", BitConverter.GetBytes(XMLUtil.GrabFloatOrDefault(spawnGridData, "widthSpacing", 10, true)));
         AddField(spawnpointNode, "GridLength", BitConverter.GetBytes(XMLUtil.GrabFloatOrDefault(spawnGridData, "lengthSpacing", 8, true)));
-        //TODO check this
         AddField(spawnpointNode, "TimeWaiting", BitConverter.GetBytes(XMLUtil.GrabFloatOrDefault(spawnGridData, "botWaitTime", 6, true)));
 
         //setup start rank (i.e player is in front when race starts)
