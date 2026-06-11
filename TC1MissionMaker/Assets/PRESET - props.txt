@@ -37,6 +37,8 @@ A93D940700000000 - WR Long width ramp 15 length 10 height
 7594850700000000 - Big concrete wall
 67FDF00100000000 - Do not cross barrier
 489A8D0700000000 - Breakable caution fence.
+CD38940700000000 - Circuit barrier with high fence
+5CFDF00100000000 - White farmer fence
 
 [Planes]
 081A850700000000 - Movable jumbo jet

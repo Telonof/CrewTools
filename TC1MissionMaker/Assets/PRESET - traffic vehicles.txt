@@ -77,7 +77,6 @@ Semi Truck (avoid using, spawns incorrectly): F2AF930700000000
 Medium Duty Truck: 9E14940700000000
 Caisson Fairview (City Bus): 540C940700000000
 Caisson Elementary C (School Bus): 3B13940700000000
-Caisson Elementary C (Prison Bus): 8B0D940700000000
 Coach Bus: 70AF930700000000
 Motorhome: D814940700000000
 Ambulance: 19E8930700000000
