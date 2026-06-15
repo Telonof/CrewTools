@@ -22,10 +22,13 @@
             Console.ResetColor();
         }
 
-        public static void Error(string message)
+        public static void Error(string message, bool exitMessage = false)
         {
             Console.Error.WriteLine(ParseMessage($"ERROR: {message}", ConsoleColor.Red));
             Console.ResetColor();
+
+            if (exitMessage)
+                Logger.WriteAndFlush();
         }
 
         public static void Warning(string message)
