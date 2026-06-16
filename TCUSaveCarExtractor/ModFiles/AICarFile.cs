@@ -1,5 +1,6 @@
 ﻿using CrewToolsCommon;
 using CrewToolsCommon.Models;
+using Gibbed.Dunia2.FileFormats;
 using System.Xml.Linq;
 using TCUSaveCarExtractor.Models;
 
@@ -21,7 +22,7 @@ internal class AICarFile : ModFile
 
     private void AddCustomCar(Car car)
     {
-        string newCarID = car.TemplateID.Substring(0, car.TemplateID.Length - 9) + "800000000";
+        string newCarID = (CRC64.Hash($"{GetOutput()}{car.TemplateID}") & 0xFFFFFFFFFFFFFF00).ToString("X16");
 
         XElement bodySection = XMLUtil.GenerateObject("name", "BodySection");
         bodySection.Add(GeneratePuzzlePiece("FrontBumperSlot", car.FrontBumperID));

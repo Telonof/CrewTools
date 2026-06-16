@@ -1,5 +1,6 @@
 ﻿using CrewToolsCommon;
 using CrewToolsCommon.Utilities;
+using Gibbed.Dunia2.FileFormats;
 using System.Text;
 using System.Text.Json;
 using System.Xml.Linq;
@@ -39,7 +40,7 @@ internal class Program
         carFile.Serialize(stream);
         stream.Dispose();
 
-        GenerateMapFile(cars, output + "_map.json");
+        GenerateMapFile(cars, output);
     }
 
     private static void GenerateMapFile(HashSet<Car> cars, string output)
@@ -49,13 +50,13 @@ internal class Program
 
         foreach (Car car in cars)
         {
-            map[car.TemplateID.Substring(0, car.TemplateID.Length - 9) + "800000000"] = car.TemplateID;
+            map[(CRC64.Hash($"{output + "_entities.xml"}{car.TemplateID}") & 0xFFFFFFFFFFFFFF00).ToString("X16")] = car.TemplateID;
         }
 
         JsonSerializerOptions options = new JsonSerializerOptions();
         options.WriteIndented = true;
 
-        File.WriteAllText(output, JsonSerializer.Serialize(map, options));
+        File.WriteAllText(output + "_map.json", JsonSerializer.Serialize(map, options));
     }
 
     private static HashSet<Car> ExtractSaveToPuzzle(string path)
