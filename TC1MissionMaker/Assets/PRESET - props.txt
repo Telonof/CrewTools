@@ -1,13 +1,13 @@
 Here is a list of random props that can be placed in the world.
 
 [Yellow Guiding Arrows]
-7B84570600000000 - Arrow 1
-7C84570600000000 - Arrow 2
-7D84570600000000 - Arrow 3
-BD90570600000000 - Arrow 4
-7E84570600000000 - Arrow 5
-7F84570600000000 - Arrow 6
-0DD7570600000000 - Arrow 7
+7B84570600000000 - Arrow 1 (short curved left)
+7C84570600000000 - Arrow 2 (long curved right)
+7D84570600000000 - Arrow 3 (long curved left)
+BD90570600000000 - Arrow 4 (short curved right)
+7E84570600000000 - Arrow 5 (single 3-arrow right)
+7F84570600000000 - Arrow 6 (single 3-arrow left)
+0DD7570600000000 - Arrow 7 (straight)
 
 [Ramps]
 1931940700000000 - Long width orange ramp with black outline.

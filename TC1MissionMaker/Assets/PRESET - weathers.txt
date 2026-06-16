@@ -1,0 +1,17 @@
+First few are pre-wr weathers and may look incorrect to what you are used to.
+
+C285920700000000 - sunny
+4390BC0200000000 - lots of clouds
+75C7920700000000 - full fog cloud coverage
+7E32930700000000 - similar to 75C7920700000000 with rain
+7F32930700000000 - same as 7E32930700000000 with lighter rain
+6B32930700000000 - sunny with few clouds
+FE3A930700000000 - sunny rain
+7EA4930700000000 - sunny with wet roads
+6C32930700000000 - white fog of death: the weather
+7D57930700000000 - same as 6B32930700000000 but turns into sunny with no clouds
+CB63930700000000 - high bloom
+53CC930700000000 - even more intense 6C32930700000000
+98CC930700000000 - more shadows on the road
+CE2F940700000000 - muted colors and light sources turned off
+2131940700000000 - glasses mode (everything is blurry in the distance)
