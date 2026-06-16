@@ -1,7 +1,6 @@
 ﻿using CrewToolsCommon;
 using CrewToolsCommon.Utilities;
 using Gibbed.Dunia2.FileFormats;
-using System.Globalization;
 using System.Xml.Linq;
 using TC1MissionMaker.Models;
 using TC1MissionMaker.ModFiles;
@@ -192,10 +191,11 @@ internal abstract class Mission
         AddField(checkpointNode, "NumberWaypoint", checkpointCount);
         AddField(checkpointNode, "WaypointStart", new byte[4]);
 
-        //set to be offroad lines or not, seems to set it to offroad even set at 00?
-        bool offroadLine = XMLUtil.GrabBoolOrDefault(_missionData, "offroadRacingLine");
-        if (offroadLine)
-            AddField(checkpointNode, "OffRoad", BitConverter.GetBytes(true));
+        string offroadLine = XMLUtil.GrabStringOrDefault(_missionData, "offroadRacingLine").ToLowerInvariant();
+        List<string> racingLines = ["false", "true", "aggressive", "partial"];
+
+        if (racingLines.Contains(offroadLine))
+            AddField(checkpointNode, "OffRoad", BitConverter.GetBytes(racingLines.IndexOf(offroadLine)));
 
         GeneratePositionData(_missionData, "spawnPosition", checkpointNode, "WorldPosition");
 
