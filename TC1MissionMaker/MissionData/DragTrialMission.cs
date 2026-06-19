@@ -36,7 +36,8 @@ namespace TC1MissionMaker.MissionData
 
             //disable car select screen completely
             bool disableCarSelect = XMLUtil.GrabBoolOrDefault(_missionData, "disableCarSelectScreen");
-            GenerateBoolElement("81EAE5AF", disableCarSelect);
+            if (disableCarSelect)
+                GenerateBoolElement("81EAE5AF", disableCarSelect);
         }
 
         public override bool ParseInstantStart(bool instant)
