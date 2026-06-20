@@ -2,7 +2,6 @@ using CrewToolsCommon;
 using CrewToolsCommon.Models;
 using CrewToolsCommon.Utilities;
 using Gibbed.Dunia2.FileFormats;
-using System.IO.Compression;
 using System.Text.Json;
 using System.Xml;
 using System.Xml.Linq;

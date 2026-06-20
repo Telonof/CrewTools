@@ -1,6 +1,4 @@
 ﻿using CrewToolsCommon;
-using CrewToolsCommon.Utilities;
-using Gibbed.Dunia2.FileFormats;
 using System.Xml.Linq;
 using TC1MissionMaker.Models;
 using TC1MissionMaker.ModFiles;
@@ -10,10 +8,6 @@ namespace TC1MissionMaker.MissionData
 {
     internal class EscapeMission : PoliceMission
     {
-        //engine limitation
-        private const int MAX_POLICE_SPAWNS = 5;
-
-
         public EscapeMission(XElement missionData, MissionInfo mission, EntitiesData entitesData, Dictionary<string, Dictionary<string, string[]>> wizards) : base(missionData, mission, entitesData, wizards)
         {
         }

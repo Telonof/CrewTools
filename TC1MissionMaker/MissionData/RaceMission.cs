@@ -83,6 +83,7 @@ namespace TC1MissionMaker.MissionData
             GenerateFullFloatElement("821A0000", "00E00BC500300E46", (float)value);
 
             //override spawn params of police
+            //TODO wait how does this work? this id doesn't exist in race missions
             string spawnParamEntity = XMLUtil.GrabIDHex(_missionData, "policeSpawnParams");
             if (spawnParamEntity != null)
                 GenerateFullEntityElement("3D549BD4", "A8110000", "00C0F4C500804645", Convert.FromHexString(spawnParamEntity));
