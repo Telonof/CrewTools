@@ -59,7 +59,13 @@ internal sealed class MissionType
         38542, "A529940700000000", 15, new MissionTypeSettings("DRIFT_TRIAL"), typeof(DriftTrialMission));
 
     public static readonly MissionType DragTrial = new MissionType("3657930700000000", "DRAG_TRIAL", 9,
-    38537, "A629940700000000", 16, new MissionTypeSettings("DRAG_TRIAL"), typeof(DragTrialMission));
+        38537, "A629940700000000", 16, new MissionTypeSettings("DRAG_TRIAL"), typeof(DragTrialMission));
+
+    public static readonly MissionType StuntRace = new MissionType("8D2E940700000000", "STUNT_RACE", 13,
+        39201, "902E940700000000", 20, new MissionTypeSettings("STUNT_RACE"), typeof(StuntRaceMission));
+
+    public static readonly MissionType Monster = new MissionType("CA63930700000000", "MONSTER", 8,
+        38532, "A429940700000000", 7, new MissionTypeSettings("MONSTER"), typeof(MonsterMission));
 
     //unused in the main game, possible to make a mission out of, but extremely basic. Think time trial but crate instead of checkpoint.
     public static readonly MissionType TimeTrialOffroad = new MissionType("8C58D90100000000", "TIME_TRIAL_OFFROAD", 6,
@@ -87,6 +93,10 @@ internal sealed class MissionType
                 return DriftTrial;
             case "drag_trial":
                 return DragTrial;
+            case "stunt_race":
+                return StuntRace;
+            case "monster":
+                return Monster;
             default:
                 return Race;
         }

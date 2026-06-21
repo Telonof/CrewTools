@@ -19,10 +19,12 @@ internal abstract class Mission
 
     protected readonly XElement _missionData;
     protected readonly MissionInfo _mission;
-    protected readonly BinaryObject _rootNode, _scriptingNode, _settingsNode, _atomEntNode, _atomLinkNode;
+    protected readonly BinaryObject _rootNode, _scriptingNode, _settingsNode, _atomEntNode, _atomLinkNode, _atomAddNode, _atomVarAddNode;
     protected readonly EntitiesData _entitiesData;
 
     protected ulong _spawnpointId;
+
+    protected uint _addedId = 2147483648;
 
 
     public Mission(XElement missionData, MissionInfo mission, EntitiesData entitesData, Dictionary<string, Dictionary<string, string[]>> wizards)
@@ -53,11 +55,13 @@ internal abstract class Mission
         AddField(_scriptingNode, "MaxTime", BitConverter.GetBytes(XMLUtil.GrabIntOrDefault(missionData, "pointScale", 600)));
         AddField(_scriptingNode, "WndScale", BitConverter.GetBytes((uint)34));
         AddField(_scriptingNode, "WndPosition", Convert.FromHexString("00401CC600C03744"));
-        AddField(_scriptingNode, "MaxIdAdded", BitConverter.GetBytes((uint)2147483658));
+        AddField(_scriptingNode, "MaxIdAdded", BitConverter.GetBytes((uint)2147483688));
 
         _settingsNode = AddChildDirectly(_scriptingNode, "ListMissionAtomVariableEnt");
         _atomEntNode = AddChildDirectly(_scriptingNode, "ListMissionAtomEnt");
         _atomLinkNode = AddChildDirectly(_scriptingNode, "ListMissionAtomLinkAdded");
+        _atomAddNode = AddChildDirectly(_scriptingNode, "ListMissionAtomAdded");
+        _atomVarAddNode = AddChildDirectly(_scriptingNode, "ListMissionAtomVariableAdded");
 
         AddField(_scriptingNode, "CREDITS", [0x56, 0x47, 0x39, 0x76, 0x62, 0x45, 0x4A, 0x35, 0x52, 0x6C, 0x52, 0x4A, 0x56, 0x77, 0x3D, 0x3D]);
 
@@ -88,17 +92,22 @@ internal abstract class Mission
         ParseNextMission();
         ParseProps();
         ParsePointsForTime();
+        ParseFinishCutscene();
         GenerateText();
         MissionSpecific();
 
         //Traffic
-        bool traffic = XMLUtil.GrabBoolOrDefault(_missionData, "traffic", true);
-        GenerateBoolElement("AC1FDD9A", traffic);
+        //Monster needs a hook manually added to it.
+        if (!_mission.Type.Equals(MissionType.Monster))
+        {
+            bool traffic = XMLUtil.GrabBoolOrDefault(_missionData, "traffic", true);
+            GenerateBoolElement("AC1FDD9A", traffic);
 
-        //traffic rate
-        float trafficRate = XMLUtil.GrabFloatOrDefault(_missionData, "trafficRate", -1);
-        if (trafficRate > -1)
-            GenerateFloatElement("9D86E46F", trafficRate);
+            //traffic rate
+            float trafficRate = XMLUtil.GrabFloatOrDefault(_missionData, "trafficRate", -1);
+            if (trafficRate > -1)
+                GenerateFloatElement("9D86E46F", trafficRate);
+        }
 
         //instant start
         bool instantStart = XMLUtil.GrabBoolOrDefault(_missionData, "instantStart", false);
@@ -122,6 +131,23 @@ internal abstract class Mission
 
     protected void GenerateRewardMovie(byte[][]? lastPositionData)
     {
+        XElement rewardMovieData = _missionData.Element("rewardMovie");
+
+        bool noMovie = XMLUtil.GrabStringOrDefault(rewardMovieData, "position").Equals("none", StringComparison.InvariantCultureIgnoreCase);
+
+        if (noMovie)
+            return;
+
+        float[] customCoords = XMLUtil.GrabCoords(rewardMovieData, "position", false);
+        float[] customAngles = XMLUtil.GrabAngles(rewardMovieData);
+
+        //We can't automatically add empty coord/yaw data since someone may still want the coord data already provided in lastPositionData.
+        if (customCoords.Length != 0)
+        {
+            lastPositionData[0] = ConversionUtil.FloatsToByteArray(customCoords);
+            lastPositionData[1] = ConversionUtil.FloatsToByteArray(customAngles);
+        }
+
         if (lastPositionData == null || lastPositionData.Length == 0)
         {
             lastPositionData = new byte[2][];
@@ -269,7 +295,7 @@ internal abstract class Mission
         return lastCheckpointData;
     }
 
-    protected void GenerateSpawnpointEntity(bool list = false)
+    protected void GenerateSpawnpointEntity(bool list = false, bool monster = false)
     {
         BinaryObject spawnpointNode = AddChildDirectly(_rootNode, "Entity");
         XElement? spawnGridData = _missionData.Element("startingGrid");
@@ -297,6 +323,12 @@ internal abstract class Mission
             AddField(spawnpointNode, "PosFromEnd", Convert.FromHexString("00"));
 
         GeneratePositionData(_missionData, "spawnPosition", spawnpointNode, "WorldPosition");
+
+        if (monster)
+        {
+            GenerateFullEntityListElement("D1FB81EA", "B4830000", "00806645008037C5", [BitConverter.GetBytes(_spawnpointId)]);
+            return;
+        }
 
         if (list)
         {
@@ -374,7 +406,7 @@ internal abstract class Mission
         GenerateFullEntityListElement(className, id, atomPosition, values, wizardName);
     }
 
-    protected void GenerateFullEntityListElement(string className, string id, string atomPosition, byte[][] values, string wizardName = "FFFFFFFF")
+    protected void GenerateFullEntityListElement(string className, string id, string atomPosition, byte[][] values, string wizardName = "FFFFFFFF", string listType = "Entities")
     {
         BinaryObject obj = AddChildDirectly(_settingsNode, "ListMissionAtomVariableEntElement");
         obj = AddChildDirectly(obj, "ListMissionAtomVariableEntValue");
@@ -382,11 +414,11 @@ internal abstract class Mission
         AddField(obj, "ID", Convert.FromHexString(id));
         AddField(obj, "AtomPosition", Convert.FromHexString(atomPosition));
         AddField(obj, "WizardName", Convert.FromHexString(wizardName));
-        BinaryObject listObj = AddChildDirectly(obj, "Entities");
+        BinaryObject listObj = AddChildDirectly(obj, listType);
         foreach (byte[] value in values)
         {
-            obj = AddChildDirectly(listObj, "EntitiesElement");
-            AddField(obj, "EntitiesValue", value);
+            obj = AddChildDirectly(listObj, $"{listType}Element");
+            AddField(obj, $"{listType}Value", value);
         }
     }
 
@@ -427,30 +459,26 @@ internal abstract class Mission
         AddField(linkNode, "TargetID", BitConverter.GetBytes(targetId));
     }
 
-    private void GenerateFullSetting(BinaryObject parent, string elementName, string elementValueName, string className, string id, string atomPosition, byte[] value, string wizardName = "FFFFFFFF", string valueName = "Value")
+    protected void GenerateFullSetting(BinaryObject parent, string elementName, string elementValueName, string className, string id, string atomPosition, byte[] value, string wizardName = "FFFFFFFF", string valueName = "Value")
     {
         BinaryObject setting = AddChildDirectly(parent, elementName);
         setting = AddChildDirectly(setting, elementValueName);
         AddField(setting, "hid_DTCTH_ClassName", Convert.FromHexString(className));
         AddField(setting, "ID", Convert.FromHexString(id));
         AddField(setting, "AtomPosition", Convert.FromHexString(atomPosition));
+
+        if (string.IsNullOrWhiteSpace(wizardName))
+            return;
+
         AddField(setting, "WizardName", Convert.FromHexString(wizardName));
         AddField(setting, valueName, value);
     }
 
     private void GenerateMusic()
     {
-        //dont try and add music for mission types with no hooks.
-        if (string.IsNullOrWhiteSpace(_mission.Type.Settings.MusicIds[0]))
+        //dont allow hook if hook not found.
+        if (_mission.Type.Settings.MusicIds == null)
             return;
-
-        //radio inconsistently turns off and I can't be bothered to figure out why, it turns off perfectly fine when it's onlinemissiontype 03.
-        //I really hope no other mission type/class combo has this happen to it but only time will tell.
-
-        /* Update, They should at least be allowed to try.
-        if (_mission.Class.Equals(MissionClass.Faction) && _mission.Type.Equals(MissionType.Takedown))
-            return;
-        */
 
         string value = XMLUtil.GrabIDHex(_missionData, "music", false);
         if (string.IsNullOrWhiteSpace(value))
@@ -530,11 +558,41 @@ internal abstract class Mission
         return Convert.FromHexString(catchup);
     }
 
+    private void ParseFinishCutscene()
+    {
+        XElement rewardMovieData = _missionData.Element("rewardMovie");
+
+        if (_mission.Type.Settings.FinishIds == null)
+            return;
+
+        string value = XMLUtil.GrabStringOrDefault(rewardMovieData, "cutscene");
+        if (value.Equals("none", StringComparison.InvariantCultureIgnoreCase))
+            value = "FFFFFFFFFFFFFFFF";
+
+        if (!string.IsNullOrWhiteSpace(value) && value.Length == 16)
+        {
+            //hitting the finish line
+            GenerateFullEntityElement(_mission.Type.Settings.FinishIds[0], _mission.Type.Settings.FinishIds[1], _mission.Type.Settings.FinishIds[2], Convert.FromHexString(value));
+            //camera rotation
+            GenerateFullEntityElement(_mission.Type.Settings.FinishIds[3], _mission.Type.Settings.FinishIds[4], _mission.Type.Settings.FinishIds[5], Convert.FromHexString("FFFFFFFFFFFFFFFF"));
+        }
+
+        //3-4 finish
+        value = XMLUtil.GrabStringOrDefault(rewardMovieData, "rewardView");
+        if (value.Equals("none", StringComparison.InvariantCultureIgnoreCase))
+            value = "FFFFFFFFFFFFFFFF";
+
+        if (!string.IsNullOrWhiteSpace(value) && value.Length == 16)
+            GenerateFullEntityElement(_mission.Type.Settings.FinishIds[6], _mission.Type.Settings.FinishIds[7], _mission.Type.Settings.FinishIds[8], Convert.FromHexString(value));
+    }
+
     //Chained missions do not read any data from mission spawner which contains the data such as vehicle restrict/time of day.
     //So we hook into the time variables directly inside the mission to force set the time.
+
+    //TODO should make this a custom method for it and traffic embed in monster.
     private void EmbedTime()
     {
-        uint id = 2147483648;
+        uint id = _addedId;
 
         //atom ent
         BinaryObject setting = AddChildDirectly(_atomEntNode, "ListMissionAtomEntElement");
@@ -550,8 +608,7 @@ internal abstract class Mission
         AddField(link, "FalseLinkIDValue", BitConverter.GetBytes(id++));
 
         //atom added
-        setting = AddChildDirectly(_scriptingNode, "ListMissionAtomAdded");
-        setting = AddChildDirectly(setting, "ListMissionAtomAddedElement");
+        setting = AddChildDirectly(_atomAddNode, "ListMissionAtomAddedElement");
         setting = AddChildDirectly(setting, "ListMissionAtomAddedValue");
 
         AddField(setting, "hid_DTCTH_ClassName", Convert.FromHexString("C535E217"));
@@ -577,9 +634,12 @@ internal abstract class Mission
         GenerateLinkElement(id + 4, id + 7);
         GenerateLinkElement(id + 5, id + 8);
 
-        setting = AddChildDirectly(_scriptingNode, "ListMissionAtomVariableAdded");
+        setting = _atomVarAddNode;
         GenerateFullSetting(setting, "ListMissionAtomVariableAddedElement", "ListMissionAtomVariableAddedValue", "ED505C2F", "06000080", "00E000C60000A544", [0x01]);
         GenerateFullSetting(setting, "ListMissionAtomVariableAddedElement", "ListMissionAtomVariableAddedValue", "DDC4E69A", "07000080", "00C0FCC50000A544", BitConverter.GetBytes(_mission.TimeOfDay));
         GenerateFullSetting(setting, "ListMissionAtomVariableAddedElement", "ListMissionAtomVariableAddedValue", "DDC4E69A", "08000080", "00C0F7C50000A544", new byte[4]);
+
+        //We used 9 here, so add 9 to the total.
+        _addedId += 9;
     }
 }
