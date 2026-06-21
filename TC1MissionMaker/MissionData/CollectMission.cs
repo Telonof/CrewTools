@@ -8,7 +8,7 @@ using TC1MissionMaker.ModFiles;
 
 namespace TC1MissionMaker.MissionData
 {
-    internal class CollectMission : Mission
+    internal class CollectMission : PoliceMission
     {
         private const int MAX_CRATES = 1000;
 
@@ -39,9 +39,12 @@ namespace TC1MissionMaker.MissionData
 
         public override void MissionSpecific()
         {
+            base.MissionSpecific();
+
             GenerateSpawnpointEntity(true);
             GenerateRewardMovie(null);
             ParseCrates();
+            ParsePoliceTriggers(["A772B217", "40010000", "4AF89AEB", "B90B0000", "120B0000", "003084C500004D45", "B30B0000", "00C085C500807745"]);
 
             //timer
             float time = XMLUtil.GrabFloatOrDefault(_missionData, "time", 60, true);
@@ -49,6 +52,30 @@ namespace TC1MissionMaker.MissionData
 
             //unknown
             GenerateFullEntityElement("5EF477AA", "0F0D0000", "000034C500807FC4", BitConverter.GetBytes(_spawnpointId));
+
+            //cop stuff
+
+            //Are they cops or enemies (gang members)
+            bool gang = XMLUtil.GrabBoolOrDefault(_missionData, "gang", false);
+            GenerateFullBoolElement("F00B0000", "004088C500C0BC45", gang);
+
+            //how many cops will spawn on trigger (they still spawn perodically after)
+            int value = XMLUtil.GrabIntOrDefault(_missionData, "initCopCount", 1, true);
+            GenerateFullFloatElement("A80C0000", "0000184300189845", (float)value);
+
+            //police stars
+            value = XMLUtil.GrabIntOrDefault(_missionData, "stars", 1, true);
+            GenerateFullFloatElement("750B0000", "0000A7C400408845", (float)value);
+
+            //override police bots
+            OverridePoliceCar("DB0B0000", "002071C50088C145", "normal");
+            OverridePoliceCar("DC0B0000", "00206CC50088BE45", "fast");
+            OverridePoliceCar("DD0B0000", "002066C50008BC45", "offroad");
+
+            //gang ids. You can only have police or gang so we don't need different carTypes.
+            OverridePoliceCar("D30B0000", "00F073C50058AF45", "normal");
+            OverridePoliceCar("D40B0000", "00F06EC50058AC45", "fast");
+            OverridePoliceCar("D50B0000", "00F068C500D8A945", "offroad");
         }
 
         private void ParseCrates()

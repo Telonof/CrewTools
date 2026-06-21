@@ -138,7 +138,7 @@ namespace TC1MissionMaker.MissionData
             AddField(setting, "ID", Convert.FromHexString(data[1]));
             setting = AddChildDirectly(setting, "EndLinkID");
             setting = AddChildDirectly(setting, "EndLinkIDElement");
-            AddField(setting, "EndLinkIDValue", BitConverter.GetBytes(2147483657));
+            AddField(setting, "EndLinkIDValue", BitConverter.GetBytes(_addedId));
 
             setting = AddChildDirectly(_atomEntNode, "ListMissionAtomEntElement");
             setting = AddChildDirectly(setting, "ListMissionAtomEntValue");
@@ -146,9 +146,9 @@ namespace TC1MissionMaker.MissionData
             AddField(setting, "ID", Convert.FromHexString(data[3]));
             setting = AddChildDirectly(setting, "StartLinkID");
             setting = AddChildDirectly(setting, "StartLinkIDElement");
-            AddField(setting, "StartLinkIDValue", BitConverter.GetBytes(2147483657));
+            AddField(setting, "StartLinkIDValue", BitConverter.GetBytes(_addedId));
 
-            GenerateLinkElement(2147483657, BitConverter.ToUInt32(Convert.FromHexString(data[3])));
+            GenerateLinkElement(_addedId, BitConverter.ToUInt32(Convert.FromHexString(data[3])));
 
             //trigger to call them off
             trigger = _missionData.Element("policeStopTrigger");
@@ -158,6 +158,8 @@ namespace TC1MissionMaker.MissionData
             id = GenerateTrigger(trigger);
             ids = [BitConverter.GetBytes(id)];
             GenerateFullEntityListElement("D1FB81EA", data[6], data[7], ids);
+
+            _addedId++;
         }
     }
 }
