@@ -43,9 +43,6 @@ internal class AICarFile : ModFile
         userSection.Add(GeneratePuzzlePiece("AvatarTopSlot", car.AvatarTopID));
         userSection.Add(GeneratePuzzlePiece("AvatarBottomSlot", car.AvatarBottomID));
 
-        XElement carDataSection = XMLUtil.GenerateObject("name", "CarDatasSection");
-        carDataSection.Add(GeneratePuzzlePiece("InteriorSlot", car.InteriorID));
-
         //bike
         XElement bikeSection = XMLUtil.GenerateObject("name", "BikeSection");
         bikeSection.Add(GeneratePuzzlePiece("SwingArmSlot", car.SwingArmID));
@@ -62,7 +59,6 @@ internal class AICarFile : ModFile
         XElement puzzleRoot = XMLUtil.GenerateObject("name", "Puzzle");
         puzzleRoot.Add(bodySection);
         puzzleRoot.Add(userSection);
-        puzzleRoot.Add(carDataSection);
         puzzleRoot.Add(bikeSection);
 
         XElement carRoot = XMLUtil.GenerateObject("name", "Entity");
@@ -87,14 +83,13 @@ internal class AICarFile : ModFile
         pieceObject.Add(XMLUtil.GenerateField("name", "ContainedItemsListValue", pieceID));
 
         XElement pieceList = XMLUtil.GenerateObject("name", "ContainedItemsList");
-        
-        if (pieceName.Contains("FenderSlot"))
-            pieceList.Add(XMLUtil.GenerateField("name", "FenderSplashGuard", "01000000"));
-        
-        pieceList.Add(XMLUtil.GenerateField("name", "CheckIds", "00"));
         pieceList.Add(pieceObject);
 
         XElement piece = XMLUtil.GenerateObject("name", pieceName);
+        if (pieceName.Contains("FenderSlot"))
+            piece.Add(XMLUtil.GenerateField("name", "FenderSplashGuard", "01000000"));
+
+        piece.Add(XMLUtil.GenerateField("name", "CheckIds", "00"));
         piece.Add(pieceList);
         return piece;
     }
