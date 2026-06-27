@@ -217,11 +217,7 @@ internal abstract class Mission
         AddField(checkpointNode, "NumberWaypoint", checkpointCount);
         AddField(checkpointNode, "WaypointStart", new byte[4]);
 
-        string offroadLine = XMLUtil.GrabStringOrDefault(_missionData, "offroadRacingLine").ToLowerInvariant();
-        List<string> racingLines = ["false", "true", "aggressive", "partial"];
-
-        if (racingLines.Contains(offroadLine))
-            AddField(checkpointNode, "OffRoad", BitConverter.GetBytes(racingLines.IndexOf(offroadLine)));
+        ParseCheckpointOptions(checkpointNode);
 
         GeneratePositionData(_missionData, "spawnPosition", checkpointNode, "WorldPosition");
 
@@ -472,6 +468,18 @@ internal abstract class Mission
 
         AddField(setting, "WizardName", Convert.FromHexString(wizardName));
         AddField(setting, valueName, value);
+    }
+
+    private void ParseCheckpointOptions(BinaryObject checkpointNode)
+    {
+        string offroadLine = XMLUtil.GrabStringOrDefault(_missionData, "offroadRacingLine").ToLowerInvariant();
+        List<string> racingLines = ["false", "true", "aggressive", "partial"];
+
+        if (racingLines.Contains(offroadLine))
+            AddField(checkpointNode, "OffRoad", BitConverter.GetBytes(racingLines.IndexOf(offroadLine)));
+
+        AddField(checkpointNode, "RespectWay", BitConverter.GetBytes(XMLUtil.GrabBoolOrDefault(_missionData, "respectWay")));
+        AddField(checkpointNode, "UseDirtRoad", BitConverter.GetBytes(XMLUtil.GrabBoolOrDefault(_missionData, "useDirtRoad", true)));
     }
 
     private void GenerateMusic()
