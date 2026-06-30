@@ -124,6 +124,8 @@ namespace TC1MissionMaker.MissionData
             if (trigger == null)
                 return;
 
+            //adding 2 ids to the list doesnt do anything in-game, it only uses the first id as if they're designed with one id.
+            //why make it a list then??
             ulong id = GenerateTrigger(trigger);
             byte[][] ids = [BitConverter.GetBytes(id)];
             GenerateFullEntityListElement("D1FB81EA", data[4], data[5], ids);

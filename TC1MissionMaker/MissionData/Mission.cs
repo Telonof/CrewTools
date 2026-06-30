@@ -478,8 +478,21 @@ internal abstract class Mission
         if (racingLines.Contains(offroadLine))
             AddField(checkpointNode, "OffRoad", BitConverter.GetBytes(racingLines.IndexOf(offroadLine)));
 
-        AddField(checkpointNode, "RespectWay", BitConverter.GetBytes(XMLUtil.GrabBoolOrDefault(_missionData, "respectWay")));
+        AddField(checkpointNode, "RespectWay", BitConverter.GetBytes(XMLUtil.GrabBoolOrDefault(_missionData, "respectWay", true)));
         AddField(checkpointNode, "UseDirtRoad", BitConverter.GetBytes(XMLUtil.GrabBoolOrDefault(_missionData, "useDirtRoad", true)));
+        AddField(checkpointNode, "UseShortcut", BitConverter.GetBytes(XMLUtil.GrabBoolOrDefault(_missionData, "useShortcut", true)));
+
+        //turn off 3d ribbon
+        if (_mission.Type.Settings.RacingLineIds == null)
+            return;
+
+        bool hideRacingLine = XMLUtil.GrabBoolOrDefault(_missionData, "hideRacingLine");
+
+        //a to b does it differently
+        if (!_mission.Type.Equals(MissionType.AToB))
+            hideRacingLine = !hideRacingLine;
+
+        GenerateFullBoolElement(_mission.Type.Settings.RacingLineIds[0], _mission.Type.Settings.RacingLineIds[1], hideRacingLine);
     }
 
     private void GenerateMusic()

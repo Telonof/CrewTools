@@ -64,7 +64,7 @@ namespace TC1MissionMaker.MissionData
             time = XMLUtil.GrabFloatOrDefault(_missionData, "damageRatio", 0.5f, true);
             AddField(_scriptingNode, "MissionDamageRatio", BitConverter.GetBytes(time));
 
-            //unknown
+            //unknown, but needed for proper spawn point
             GenerateFullEntityElement("5EF477AA", "24250000", "002003C600802345", BitConverter.GetBytes(_spawnpointId));
 
             //cop stuff
@@ -90,7 +90,6 @@ namespace TC1MissionMaker.MissionData
             OverridePoliceCar("3C240000", "00D003C500B8F345", "normal");
             OverridePoliceCar("3B240000", "00A0FDC400B8F045", "fast");
             OverridePoliceCar("3A240000", "00A0F1C40038EE45", "offroad");
-
         }
     }
 }

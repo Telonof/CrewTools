@@ -11,6 +11,9 @@ internal sealed class MissionTypeSettings
     //next 3 is the reward movie cutscene showing you your time. VarMovieSequenceRewardID
     public readonly string[] FinishIds;
 
+    //id to display the racing lines for the player or not
+    public readonly string[] RacingLineIds;
+
     //The id to hook into to force set the time for chained missions.
     public readonly string VarTimeId;
 
@@ -24,6 +27,7 @@ internal sealed class MissionTypeSettings
                 FinishIds = ["3D549BD4", "FA040000", "0040E045000036C4",
                              "3D549BD4", "C2040000", "00C0E44500003AC4",
                              "5EF477AA", "C3040000", "00C0ED45000032C4"];
+                RacingLineIds = ["16030000", "0000BBC40000AC43"];
                 break;
             case "TIME_TRIAL":
                 VarTimeId = "CC000000";
@@ -31,6 +35,7 @@ internal sealed class MissionTypeSettings
                 FinishIds = ["5EF477AA", "E8000000", "00C0CF450000B544",
                              "5EF477AA", "E6000000", "00C0D4450000B744",
                              "5EF477AA", "E5000000", "0020DC450020C644"];
+                RacingLineIds = ["BB000000", "0000EFC400008B44"];
                 break;
             case "TIME_ATTACK":
                 VarTimeId = "E1B70000";
@@ -38,6 +43,7 @@ internal sealed class MissionTypeSettings
                 FinishIds = ["3D549BD4", "CF5B0000", "0080144500A09E44",
                              "3D549BD4", "D15B0000", "00801C4500A09E44",
                              "3D549BD4", "D05B0000", "00802B4500A09C44"];
+                RacingLineIds = ["5EB80000", "00801DC50000B344"];
                 break;
             case "ESCAPE":
                 VarTimeId = "27110000";
@@ -50,6 +56,7 @@ internal sealed class MissionTypeSettings
                 FinishIds = ["5EF477AA", "57080000", "00C0BE450000D744",
                              "5EF477AA", "49080000", "0098C4450000D644",
                              "5EF477AA", "4A080000", "0098CD450000DA44"];
+                RacingLineIds = ["05020000", "0000E5C40000CB44"];
                 break;
             case "COLLECT":
                 VarTimeId = "07010000";
@@ -73,6 +80,7 @@ internal sealed class MissionTypeSettings
                 FinishIds = ["3D549BD4", "FA040000", "0040F74500004843",
                              "3D549BD4", "C2040000", "00C0FB4500006843",
                              "5EF477AA", "C3040000", "00E0024600005843"];
+                RacingLineIds = ["16030000", "0040A94500002244"];
                 break;
             case "STUNT_RACE":
                 VarTimeId = "49B80000";
@@ -80,6 +88,7 @@ internal sealed class MissionTypeSettings
                 FinishIds = ["3D549BD4", "CF5B0000", "0080144500A09E44",
                              "3D549BD4", "D15B0000", "00801C4500A09E44",
                              "5EF477AA", "D05B0000", "00802B4500A09C44"];
+                RacingLineIds = ["5EB80000", "00801BC50000A944"];
                 break;
             case "MONSTER":
                 VarTimeId = "11200000";
