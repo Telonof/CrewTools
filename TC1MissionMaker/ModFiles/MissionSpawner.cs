@@ -164,7 +164,7 @@ internal class MissionSpawner : ModFile
                     break;
 
                 case "name":
-                    ulong hashedName = CRC64.Hash(_internalModName + missionRequirement.Value) & 0x00FFFFFFFFFF0000;
+                    ulong hashedName = CRC64.Hash($"{_internalModName}{missionRequirement.Value}_id", true) & 0x00FFFFFFFFFF0000;
                     id = ConversionUtil.ULongToHex(hashedName);
                     break;
             }

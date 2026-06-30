@@ -71,7 +71,7 @@ internal class MissionInfo
         }
 
         Path = $"project\\road66\\generated\\zones\\Mission_{InternalName}.entities.bin";
-        Id = CRC64.Hash(internalModName + id) & 0x00FFFFFFFFFF0000;
+        Id = CRC64.Hash($"{internalModName}{id}_id", true) & 0x00FFFFFFFFFF0000;
         Hidden = XMLUtil.GrabBoolOrDefault(missionData, "hidden");
         Class = MissionClass.FromString(XMLUtil.GrabStringOrDefault(missionData, "missionClass").ToLowerInvariant());
         Type = MissionType.FromString(XMLUtil.GrabStringOrDefault(missionData, "missionType").ToLowerInvariant());
