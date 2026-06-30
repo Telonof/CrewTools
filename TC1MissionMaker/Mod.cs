@@ -21,18 +21,21 @@ internal class Mod
 
     private readonly string _missionFolder, _internalModName;
 
+    private readonly FileInfo[] _extraFiles;
+
     private readonly Dictionary<string, Dictionary<string, string[]>> _wizards;
 
     private readonly bool _debug;
 
     
-    public Mod(string[] files, string folder, bool debug)
+    public Mod(string[] files, string folder, DirectoryInfo extraFiles, bool debug)
     {
         _missionFiles = files;
         _missionFolder = folder;
         _internalModName = Path.GetFileName(folder);
         _wizards = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, string[]>>>(File.ReadAllText(Path.Combine("Assets", "wizards.json")));
         _debug = debug;
+        _extraFiles = extraFiles != null ? extraFiles.GetFiles() : [];
     }
 
     public void Create()
@@ -164,6 +167,17 @@ internal class Mod
         _packagedFiles.Clear();
         _packagedFiles.Add(_internalModName + "_data.fat", fatStream);
         _packagedFiles.Add(_internalModName + "_data.dat", datStream);
+
+        foreach (FileInfo file in _extraFiles)
+        {
+            string name = Path.GetFileName(file.FullName);
+
+            if (!Path.GetExtension(name).Equals(".xml"))
+                return;
+
+            ((MetadataFile)_modFiles[0]).AddFile(name);
+            _packagedFiles.TryAdd(name, file.OpenRead());
+        }
 
         FileUtil.PackageModFiles(path, _modFiles.ToArray(), _packagedFiles);
 

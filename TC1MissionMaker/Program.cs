@@ -11,10 +11,12 @@ internal class Program
 
         Option<bool> debugOption = new Option<bool>("--debug") { Description = "Keeps mission files extracted inside a DEBUG folder." };
         Argument<FileInfo> input = new Argument<FileInfo>("mission folder") { Description = "The folder containing all mission xml's and images." }.AcceptExistingOnly();
+        Argument<DirectoryInfo> extraFolder = new Argument<DirectoryInfo>("additional files folder") { Description = "An optional folder to add existing files to the mod.", Arity = ArgumentArity.ZeroOrOne }.AcceptExistingOnly();
 
         RootCommand command = new RootCommand("TC1MissionMaker") { Description = "A semi-automatic mission creator for The Crew." };
         command.Add(input);
         command.Add(debugOption);
+        command.Add(extraFolder);
 
         if (args.Length == 0)
         {
@@ -31,6 +33,7 @@ internal class Program
         command.SetAction(parseResult =>
         {
             FileInfo xml = parseResult.GetValue(input);
+            DirectoryInfo addedFiles = parseResult.GetValue(extraFolder);
             bool debug = parseResult.GetValue(debugOption);
 
             string[] files = Directory.GetFiles(xml.FullName, "*.xml", SearchOption.AllDirectories);
@@ -42,7 +45,7 @@ internal class Program
                 return;
             }
 
-            Mod mod = new Mod(files, xml.FullName, debug);
+            Mod mod = new Mod(files, xml.FullName, addedFiles, debug);
 
             try
             {
