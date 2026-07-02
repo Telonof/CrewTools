@@ -109,6 +109,16 @@ internal abstract class Mission
                 GenerateFloatElement("9D86E46F", trafficRate);
         }
 
+        //damage ratio (higher means hits do more damage)
+        float damageRatio = _mission.Type.Equals(MissionType.AToB) ? 0.5f : 0;
+        damageRatio = XMLUtil.GrabFloatOrDefault(_missionData, "damageRatio", damageRatio, true);
+        //manually setting regen to false crashes the game on finish.
+        if (damageRatio > 0)
+        {
+            AddField(_scriptingNode, "MissionStopLifeRegen", BitConverter.GetBytes(true));
+            AddField(_scriptingNode, "MissionDamageRatio", BitConverter.GetBytes(damageRatio));
+        }
+
         //instant start
         bool instantStart = XMLUtil.GrabBoolOrDefault(_missionData, "instantStart", false);
         instantStart = ParseInstantStart(instantStart);
@@ -348,6 +358,11 @@ internal abstract class Mission
     protected void AddField(BinaryObject obj, string name, byte[] value)
     {
         obj.Fields.Add(CRC32.Hash(name), value);
+    }
+
+    protected void RemoveField(BinaryObject obj, string name)
+    {
+        obj.Fields.Remove(CRC32.Hash(name));
     }
 
     protected BinaryObject AddChildDirectly(BinaryObject parent, string name)

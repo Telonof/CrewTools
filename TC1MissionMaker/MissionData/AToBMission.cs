@@ -43,7 +43,7 @@ namespace TC1MissionMaker.MissionData
 
             //timer
             float time = XMLUtil.GrabFloatOrDefault(_missionData, "time", 0, true);
-            GenerateFloatElement("7B37A6CF", time);
+            GenerateFloatElement("7B37A6CF", GetTimeMod(time));
 
             //enable timer
             GenerateBoolElement("34C31B74", time > 0);
@@ -52,17 +52,11 @@ namespace TC1MissionMaker.MissionData
             bool health = XMLUtil.GrabBoolOrDefault(_missionData, "health", false);
             GenerateBoolElement("7E1E081D", health);
 
+            //fail the mission on health 0
             if (health)
-            {
-                //car's damage doesn't heal overtime
-                AddField(_scriptingNode, "MissionStopLifeRegen", [0x01]);
-                //fail the mission on health 0
                 GenerateFullBoolElement("01260000", "0000A3440000A7C4", true);
-            }
-
-            //damage ratio (higher means hits do more damage)
-            time = XMLUtil.GrabFloatOrDefault(_missionData, "damageRatio", 0.5f, true);
-            AddField(_scriptingNode, "MissionDamageRatio", BitConverter.GetBytes(time));
+            else
+                RemoveField(_scriptingNode, "MissionStopLifeRegen");
 
             //unknown, but needed for proper spawn point
             GenerateFullEntityElement("5EF477AA", "24250000", "002003C600802345", BitConverter.GetBytes(_spawnpointId));
