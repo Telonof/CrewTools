@@ -1,0 +1,28 @@
+catchup = rubberband
+These are all extremely rough descriptions of what each catchup does as the exact mechanics of the rubberband system aren't clear cut.
+
+skill levels for bots are usually set between 0 and 1. 1 means they are highly skilled, 0 means very clumsy.
+Max skill buff is 100%, max skill nerf is -100%.
+
+
+10E0120000000000 - Default: no skill buff / nerf.
+65AEF50400000000 - Bots will have max skill buff until they are 0m away from you. Then will gradually have their skill nerfed to max once they reach 50m onwards. Is the default for all follow missions unless manually specified.
+F147130000000000 - Bots will have max skill buff until they are 0m away from you. Then will gradually have their skill nerfed to max once they reach 60m onwards. Used in Red Handed, A Little Nudge.
+1307870700000000 - Bots will have max skill buff until they are 0m away from you. Then will gradually have their skill nerfed to max once they reach 75m onwards.
+431A870700000000 - Bots will have max skill buff until they are 0m away from you. Then will gradually have their skill nerfed to max once they reach 90m onwards.
+CF23840700000000  Bots will have max skill buff until they are 0m away from you. Then will gradually have their skill nerfed to max once they reach 120m onwards. Used in Making a Ghost, Dirty Money, Chin Music, Fearful Symmetry takedown portion.
+8975840700000000 - Bots will have max skill buff until they are 0m away from you. Then will gradually have their skill nerfed to max once they reach 125m onwards. Used in Predicament.
+CB4E860700000000 - Bots will have max skill buff until they are -25m away from you. Then will gradually have their skill nerfed to max once they reach 125m onwards. Used in Family Matters follow mission.
+50B3940700000000 - Bots will have max skill buff until they are 0m away from you. Then will gradually have their skill nerfed to max once they reach 500m onwards.
+303D480700000000 - Bots will have max skill buff until they are 0m away from you. Then will gradually have their skill nerfed to -35% once they reach 50m onwards. Used in The Duel.
+549F850700000000 - Bots will have max skill buff until they are -5m away from you. Then will gradually have their skill nerfed to 10% until 0m then to -35% once they reach 100m onwards.
+B21F900700000000 - Bots will have skill buff of 75% until they are 0m away from you. Then will gradually have their skill nerfed to 0% until 100m then to max nerf 300m onwards. Used in Gumshoe, Hired Gun.
+9279A30200000000 - Bots will have max skill buff until they are -300m away from you. Then will gradually have their skill nerfed to 0% until 0m then to -22% once they reach 150m onwards. Is the default for all race missions unless manually specified.
+1B8A8E0700000000 - Bots will have max skill buff until they are 0m away from you. Then will gradually have their skill nerfed to -40% until 75m then to -80% at 150m onwards. Used in V8 takedown portion.
+C94E860700000000 - Bots will have max skill buff and gradually go to a 87% buff until they are -245m away from you. Then will go down to -37% until 257m away, then -50% to 986m onwards.
+2867870700000000 - Bots will have max skill buff and gradually go to a 25% buff until they are 0m away from you. Then will go down to 0% near the player, then will be nerfed until max nerf at 400m onwards. Used in Burn coburn follow mission.
+3C0F850700000000 - Bots will have max skill buff until they are -200m away from you. Then will gradually go to a 0% buff until they are 0m away from you. Then will be nerfed until max nerf starting from 50m away until 200m away onwards. Used in The Initiation, Dirt, Green, Driving Test, etc.
+3D0F850700000000 - Bots will have max skill buff until they are -200m away from you. Then will gradually go to a 0% buff until they are 0m away from you. Then will be nerfed to -37% starting from 50m away until 250m away onwards. Used in The Fix, Overpower, Going Pro, The Main Event, etc.
+3E0F850700000000 - Bots will have max skill buff until they are -200m away from you. Then will gradually go to a 0% buff until they are 0m away from you. Then will be nerfed to -37% starting from 50m away until 300m away onwards. Used in Turf War, Rolling Deep, Supersonic, History in the Making, etc.
+F685860700000000 - Will continually have max skill buff until 75m. No indication skill will ever depreciate due to distance.
+C8C1940700000000 - Bots will have skill buff of 90% until they are 50m away from you. Then to 70% until 100m, then 10% until 150m, then -30% until 200m, then -40% until 250m, then -50% until 300m, then to -90% until 500m onwards. Used in CAU arrest missions.
