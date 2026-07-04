@@ -66,7 +66,7 @@ internal class MissionInfo
         float[] coords = XMLUtil.GrabCoords(missionData, "spawnPosition");
         if (coords.Length == 0)
         {
-            Logger.Error("Mission {id} has an invalid spawnPosition.");
+            Logger.Error($"Mission {id} has an invalid spawnPosition.");
             return false;
         }
 

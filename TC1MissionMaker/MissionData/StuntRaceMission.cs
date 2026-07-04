@@ -39,7 +39,6 @@ namespace TC1MissionMaker.MissionData
             byte[][] posData = GenerateCheckpointEntity("6BF8160000000000");
             GenerateRewardMovie(posData);
             GenerateSpawnpointEntity();
-            ParseScoring();
             ParseCustomTimes();
 
             //lap count
@@ -60,20 +59,10 @@ namespace TC1MissionMaker.MissionData
             //max time
             float time = XMLUtil.GrabFloatOrDefault(_missionData, "pointScale", 300, true);
             GenerateFullFloatElement("A4B80000", "00A0D6C4000096C2", time);
-        }
-        
-        private void ParseScoring()
-        {
-            XElement? scoreNode = _missionData.Element("scoring");
-
-            if (scoreNode == null)
-                return;
 
             //how many points are given each second
-            GenerateFullFloatElement("B8B80000", "00800CC50000AB44", XMLUtil.GrabFloatOrDefault(scoreNode, "jumpPointsPerSecond", 150, true));
-            
-            //how many points are given each second
-            GenerateFullFloatElement("BAB80000", "008005C50000B744", XMLUtil.GrabFloatOrDefault(scoreNode, "wheeliePointsPerSecond", 0, true));
+            GenerateFullFloatElement("B8B80000", "00800CC50000AB44", XMLUtil.GrabFloatOrDefault(_missionData, "jumpPointsPerSecond", 150, true));
+            GenerateFullFloatElement("BAB80000", "008005C50000B744", XMLUtil.GrabFloatOrDefault(_missionData, "wheeliePointsPerSecond", 0, true));
         }
 
         //List is setup so first item is initial time, then every time sets the time rather than adds onto it.

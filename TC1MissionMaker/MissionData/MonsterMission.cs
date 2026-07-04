@@ -79,7 +79,6 @@ namespace TC1MissionMaker.MissionData
             GenerateRewardMovie(null);
             ParseTargets();
             ParsePointRespawn();
-            ParseScoring();
             EmbedTraffic();
 
             //how much time someone has before car selection is up.
@@ -101,6 +100,9 @@ namespace TC1MissionMaker.MissionData
             AddField(pointEntity, "ID", BitConverter.GetBytes(id));
             AddField(pointEntity, "FatherArchetypeID", Convert.FromHexString("C12E940700000000"));
             GenerateFullEntityElement("5EF477AA", "8F070100", "0000C74400007E44", BitConverter.GetBytes(id));
+
+            //how many points are given each second
+            GenerateFullFloatElement("6F200000", "0000B4C300005244", XMLUtil.GrabFloatOrDefault(_missionData, "jumpPointsPerSecond", 100, true));
         }
 
         private void ParsePointRespawn()
@@ -118,17 +120,6 @@ namespace TC1MissionMaker.MissionData
             GenerateFullFloatElement("6D200000", "0000EC4300005644", XMLUtil.GrabFloatOrDefault(scoreNode, "gold", -1, true));
             //plat
             GenerateFullFloatElement("C0060100", "0000464400007244", XMLUtil.GrabFloatOrDefault(scoreNode, "platinum", -1, true));
-        }
-        
-        private void ParseScoring()
-        {
-            XElement? scoreNode = _missionData.Element("scoring");
-
-            if (scoreNode == null)
-                return;
-
-            //how many points are given each second
-            GenerateFullFloatElement("6F200000", "0000B4C300005244", XMLUtil.GrabFloatOrDefault(scoreNode, "jumpPointsPerSecond", 100, true));
         }
 
         private void ParseTargets()
