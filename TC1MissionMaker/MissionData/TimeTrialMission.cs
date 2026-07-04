@@ -86,11 +86,13 @@ namespace TC1MissionMaker.MissionData
             OverridePoliceCar("F8090000", "0078EFC500C0B9C4", "normal");
             OverridePoliceCar("F9090000", "00F8ECC500C0C5C4", "fast");
             OverridePoliceCar("FA090000", "00F8E9C500C0CFC4", "offroad");
+            OverridePoliceCar("FB090000", "00C0E2C50000C3C4", "roadblock");
 
             //gang ids. You can only have police or gang so we don't need different carTypes.
             OverridePoliceCar("F3090000", "00E0F0C5004001C5", "normal");
             OverridePoliceCar("F4090000", "0060EEC5004007C5", "fast");
             OverridePoliceCar("F5090000", "0060EBC500400CC5", "offroad");
+            OverridePoliceCar("F6090000", "00C0E3C5008003C5", "roadblock");
 
             //override behavior
             spawnParamEntity = XMLUtil.GrabIDHex(_missionData, "policeBehavior");

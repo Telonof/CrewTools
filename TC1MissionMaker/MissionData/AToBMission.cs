@@ -79,11 +79,13 @@ namespace TC1MissionMaker.MissionData
             OverridePoliceCar("37240000", "000001C500F40246", "normal");
             OverridePoliceCar("36240000", "0000F8C400740146", "fast");
             OverridePoliceCar("35240000", "0000ECC400340046", "offroad");
+            OverridePoliceCar("34240000", "0000DCC400740046", "roadblock");
 
             //gang ids. You can only have police or gang so we don't need different carTypes.
             OverridePoliceCar("3C240000", "00D003C500B8F345", "normal");
             OverridePoliceCar("3B240000", "00A0FDC400B8F045", "fast");
             OverridePoliceCar("3A240000", "00A0F1C40038EE45", "offroad");
+            OverridePoliceCar("39240000", "00A0E1C400B8EE45", "roadblock");
         }
     }
 }
