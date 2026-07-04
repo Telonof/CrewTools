@@ -127,7 +127,7 @@ internal abstract class Mission
         if (!instantStart && !string.IsNullOrWhiteSpace(ttog))
             ParseTTOG(ttog);
 
-        if (_mission.Type.Equals(MissionType.TimeAttack))
+        if (_mission.Type.Equals(MissionType.TimeAttack) || _mission.Type.Equals(MissionType.StuntRace))
             return;
 
         //loan car
