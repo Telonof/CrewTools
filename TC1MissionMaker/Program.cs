@@ -36,11 +36,17 @@ internal class Program
             DirectoryInfo addedFiles = parseResult.GetValue(extraFolder);
             bool debug = parseResult.GetValue(debugOption);
 
+            if (Path.GetFileName(xml.FullName).Any(char.IsWhiteSpace))
+            {
+                Logger.Error("Whitespace found in folder name, please remove all whitespace characters.", true);
+                Prompt();
+                return;
+            }
+
             string[] files = Directory.GetFiles(xml.FullName, "*.xml", SearchOption.AllDirectories);
             if (files.Length == 0)
             {
-                Logger.Error($"No XML files found in {args[0]}.");
-                Logger.WriteAndFlush();
+                Logger.Error($"No XML files found in {args[0]}.", true);
                 Prompt();
                 return;
             }
@@ -60,8 +66,7 @@ internal class Program
 
                 Logger.Info("Something went wrong! Printing stacktrace, check log.txt for stacktrace.");
                 Logger.Error(ex.Message);
-                Logger.Error(ex.StackTrace);
-                Logger.WriteAndFlush();
+                Logger.Error(ex.StackTrace, true);
                 Prompt();
             }
         });
