@@ -492,6 +492,7 @@ internal abstract class Mission
         AddField(checkpointNode, "RespectWay", BitConverter.GetBytes(XMLUtil.GrabBoolOrDefault(_missionData, "respectWay", true)));
         AddField(checkpointNode, "UseDirtRoad", BitConverter.GetBytes(XMLUtil.GrabBoolOrDefault(_missionData, "useDirtRoad", true)));
         AddField(checkpointNode, "UseShortcut", BitConverter.GetBytes(XMLUtil.GrabBoolOrDefault(_missionData, "useShortcut", true)));
+        AddField(checkpointNode, "UseJump", BitConverter.GetBytes(XMLUtil.GrabBoolOrDefault(_missionData, "useJump", true)));
 
         //turn off 3d ribbon
         if (_mission.Type.Settings.RacingLineIds == null)
