@@ -3,9 +3,7 @@ using CrewToolsCommon.Utilities;
 using Gibbed.Dunia2.FileFormats;
 using System.Buffers.Binary;
 using System.Globalization;
-using System.Numerics;
 using System.Xml.Linq;
-using TC1MissionMaker.MissionData;
 using TC1MissionMaker.ModFiles;
 using static TC1MissionMaker.Models.MissionType;
 
@@ -48,10 +46,7 @@ internal class MissionInfo
     {
         string? id = XMLUtil.GrabStringOrDefault(missionData, "internalName", true);
         if (string.IsNullOrWhiteSpace(id))
-        {
-            Logger.Error($"No internalName found for mission.");
             return false;
-        }
 
         if (existingIds.Contains(id))
         {

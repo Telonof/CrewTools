@@ -108,7 +108,10 @@ internal class Mod
             MissionInfo mission = new MissionInfo();
             bool init = mission.Init(root, _internalModName, existingIds, count, _missionFiles.Length);
             if (!init)
+            {
+                Logger.Error($"Unable to parse {Path.GetFileName(missionFile)}.");
                 continue;
+            }
 
             existingIds.Add(mission.InternalName);
             zoneData.AddFile(mission);
