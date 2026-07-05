@@ -60,7 +60,10 @@ namespace TC1MissionMaker.MissionData
         public override bool ParseInstantStart(bool instant)
         {
             if (instant)
+            {
                 GenerateFullEntityElement("3D549BD4", "39830000", "008009C500004244", Convert.FromHexString("FFFFFFFFFFFFFFFF"));
+                GenerateFullEntityListElement("40CDDA90", "55830000", "00E0BAC400409444", [Convert.FromHexString("FFFFFFFFFFFFFFFF")]);
+            }
 
             return instant;
         }
@@ -73,7 +76,6 @@ namespace TC1MissionMaker.MissionData
         public override void MissionSpecific()
         {
             GenerateSpawnpointEntity(true, true);
-            GenerateFullEntityListElement("D1FB81EA", "E3410000", "0038DC45004881C5", [BitConverter.GetBytes(_spawnpointId)], "993E7E7B");
             GenerateFullEntityListElement("D1FB81EA", "3B830000", "0020A0C500803B44", [BitConverter.GetBytes(_spawnpointId)], "0D0A6296");
 
             GenerateRewardMovie(null);
