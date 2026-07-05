@@ -36,7 +36,7 @@ namespace TC1MissionMaker.MissionData
         {
             base.MissionSpecific();
 
-            byte[][] posData = GenerateCheckpointEntity("565D460300000000");
+            byte[][] posData = GenerateCheckpointEntity("565D460300000000", "312466AB", false, "0109870700000000");
             GenerateRewardMovie(posData);
             GenerateSpawnpointEntity(true);
             ParsePoliceTriggers(["A772B217", "1F000000", "4AF89AEB", "2B240000", "BF230000", "008003C50040BB45", "C2230000", "0000FFC400C0D045"]);

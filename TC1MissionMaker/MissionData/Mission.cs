@@ -192,7 +192,7 @@ internal abstract class Mission
         return time;
     }
 
-    protected byte[][] GenerateCheckpointEntity(string checkpointType, string wizardName = "312466AB", bool list = false)
+    protected byte[][] GenerateCheckpointEntity(string checkpointType, string wizardName = "312466AB", bool list = false, string father = "58C1010000000000")
     {
         //Test if checkpoints exist
         XElement checkpoints = _missionData.Element("checkpoints");
@@ -202,10 +202,6 @@ internal abstract class Mission
 
         BinaryObject checkpointNode = AddChildDirectly(_rootNode, "Entity");
         byte[][] lastCheckpointData = new byte[2][];
-
-        string father = "58C1010000000000";
-        if (_mission.Type.Equals(MissionType.AToB))
-            father = "0109870700000000";
 
         ulong id = _mission.GenerateId();
 
