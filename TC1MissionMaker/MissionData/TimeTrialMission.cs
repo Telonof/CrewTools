@@ -104,6 +104,10 @@ namespace TC1MissionMaker.MissionData
 
             //unknown
             GenerateFullBoolElement("1E0B0000", "0000F1C400800145", true);
+
+            //fixes the distance computation on laps.
+            gang = XMLUtil.GrabBoolOrDefault(_missionData, "lappedDistanceCalculation", false);
+            GenerateFullBoolElement("560B0000", "00800BC500008F44", !gang);
         }
     }
 }
