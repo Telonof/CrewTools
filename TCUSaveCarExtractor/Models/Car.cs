@@ -6,6 +6,8 @@ public record Car
     public string DressID { get; set; }
     public string TemplateID { get; set; }
 
+    public string[] PhysIds { get; set; } = new string[11];
+
     public string FrontBumperID { get; set; }
     public string RearBumperID { get; set; }
     public string SkirtsID { get; set; }

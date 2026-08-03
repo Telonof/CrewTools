@@ -12,6 +12,7 @@ namespace TCUSaveCarExtractor;
 internal class Program
 {
     private static XElement RenderDatabase;
+    private static XElement PhysDatabase;
 
 
     public static void Main(string[] args)
@@ -31,6 +32,7 @@ internal class Program
         string output = Path.Combine(Path.GetDirectoryName(args[0]), Path.GetFileNameWithoutExtension(args[0]));
         AICarFile carFile = new AICarFile(output + "_entities.xml");
         RenderDatabase = XDocument.Load(Path.Combine("Assets", "renderdatabase.xml")).Root.Element("object");
+        PhysDatabase = XDocument.Load(Path.Combine("Assets", "physdatabase.xml")).Root.Element("object");
 
         HashSet<Car> cars = ExtractSaveToPuzzle(args[0]);
         carFile.AddAllCars(cars);
@@ -92,7 +94,13 @@ internal class Program
                     TemplateID = ReadID(reader)
                 };
 
-                stream.Seek(41, SeekOrigin.Current);
+                stream.Seek(19, SeekOrigin.Current);
+                for (int phys = 0; phys < 11; phys++)
+                {
+                    car.PhysIds[phys] = ConvertIndexToPhysID(reader);
+                }
+
+                //stream.Seek(41, SeekOrigin.Current);
                 car.FrontBumperID = ConvertIndexToIDReversed(reader);
                 car.RearBumperID = ConvertIndexToIDReversed(reader);
                 car.SkirtsID = ConvertIndexToIDReversed(reader);
@@ -183,5 +191,17 @@ internal class Program
             return "FFFFFFFFFFFFFFFF";
 
         return XMLUtil.GrabField(RenderDatabase.Elements().ElementAt(id), "name", "SourceEntityID").Value;
+    }
+
+    private static string ConvertIndexToPhysID(BinaryReader reader)
+    {
+        byte[] data = reader.ReadBytes(2);
+        Array.Reverse(data);
+        ushort id = BitConverter.ToUInt16(data);
+
+        if (id == 65535 || id == -1)
+            return "FFFFFFFFFFFFFFFF";
+
+        return XMLUtil.GrabField(PhysDatabase.Elements().ElementAt(id), "name", "SourceEntityID").Value;
     }
 }
