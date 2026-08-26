@@ -70,13 +70,17 @@ namespace TC1MissionMaker.MissionData
             fvalue = XMLUtil.GrabFloatOrDefault(_missionData, "finishIn", 1, true);
             GenerateFloatElement("DB474B28", fvalue);
 
+            //disable pedestrian
+            bool savedBoolValue = XMLUtil.GrabBoolOrDefault(_missionData, "disablePedestrian");
+            GenerateFullBoolElement("B51A0000", "0000FDC400804545", !savedBoolValue);
+
             //police stars
             value = XMLUtil.GrabIntOrDefault(_missionData, "stars", 1, true);
             GenerateFullFloatElement("68190000", "00F04DC50068F345", (float)value);
 
             //Are they cops or enemies (gang members)
-            bool gang = XMLUtil.GrabBoolOrDefault(_missionData, "gang", false);
-            GenerateFullBoolElement("041A0000", "002080C5004C1646", gang);
+            savedBoolValue = XMLUtil.GrabBoolOrDefault(_missionData, "gang", false);
+            GenerateFullBoolElement("041A0000", "002080C5004C1646", savedBoolValue);
 
             //how many cops will spawn on trigger (they still spawn perodically after)
             value = XMLUtil.GrabIntOrDefault(_missionData, "initCopCount", 1, true);

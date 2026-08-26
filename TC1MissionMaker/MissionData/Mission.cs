@@ -214,7 +214,7 @@ internal abstract class Mission
         string loop = "FFFFFFFF";
         XElement laps = _missionData.Element("laps");
         int lapCount = XMLUtil.GrabIntOrDefault(_missionData, "laps", 0, true);
-        if (_mission.Type.Equals(MissionType.Race) && lapCount > 1)
+        if ((_mission.Type.Equals(MissionType.Race) || _mission.Type.Equals(MissionType.StuntRace)) && lapCount > 1)
             loop = "00000000";
 
         AddField(checkpointNode, "Loop", Convert.FromHexString(loop));
