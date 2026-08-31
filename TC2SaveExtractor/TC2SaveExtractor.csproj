@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	<SelfContained>false</SelfContained>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<Content Include="Assets\**\data.json">
+			<Link>%(Filename)%(Extension)</Link>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="..\Gibbed.Dunia2\bin\projects\*.*">
+			<Link>projects\%(Filename)%(Extension)</Link>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="..\Gibbed.Dunia2\bin\projects\The Crew 2\Hashes\*.json">
+			<Link>projects\The Crew 2\Hashes\%(Filename)%(Extension)</Link>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\CrewToolsCommon\CrewToolsCommon.csproj" />
+	  <ProjectReference Include="..\Gibbed.Dunia2\Gibbed.Dunia2.BinaryObjectInfo\Gibbed.Dunia2.BinaryObjectInfo.csproj" />
+	  <ProjectReference Include="..\Gibbed.Dunia2\Gibbed.Dunia2.FileFormats\Gibbed.Dunia2.FileFormats.csproj" />
+	</ItemGroup>
+
+</Project>
