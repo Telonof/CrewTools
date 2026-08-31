@@ -184,12 +184,6 @@ Lamborghini LP640 PERF
 Lamborghini LP640 CIRCUIT
 Lamborghini Miura_SV FULL_STOCK
 Lamborghini Miura_SV PERF
-Land_Rover RangeSport DIRT
-Land_Rover RangeSport FULL_STOCK
-Land_Rover RangeSport PERF
-Land_Rover RangeSport CIRCUIT
-Land_Rover RangeSport RAID
-Land_Rover RangeSport STREET
 Lotus Evora_GTE FULL_STOCK
 Lotus Evora_GTE PERF
 Lotus Exige_S DIRT

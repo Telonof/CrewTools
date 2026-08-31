@@ -36,6 +36,21 @@
             Console.WriteLine(ParseMessage($"WARNING: {message}", ConsoleColor.Yellow));
             Console.ResetColor();
         }
+        
+        public static void Banner(string message)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(message);
+            Console.ResetColor();
+        }
+
+        public static void BannerHighlight(string message, string name)
+        {
+            Console.Write(message);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($" {name}");
+            Console.ResetColor();
+        }
 
         private static string ParseMessage(string message, ConsoleColor color)
         {
