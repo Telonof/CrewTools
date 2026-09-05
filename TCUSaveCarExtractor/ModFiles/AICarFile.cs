@@ -53,6 +53,7 @@ internal class AICarFile : ModFile
 
         XElement userSection = XMLUtil.GenerateObject("name", "UserDatasSection");
         userSection.Add(GeneratePuzzlePiece("CarColorSlot", car.ColorID));
+        userSection.Add(GeneratePuzzlePiece("CarColor2Slot", car.Color2ID));
         userSection.Add(GeneratePuzzlePiece("StickersSlot", car.StickerID));
         userSection.Add(GeneratePuzzlePiece("AvatarHelmetSlot", car.AvatarHelmet));
         userSection.Add(GeneratePuzzlePiece("AvatarTopSlot", car.AvatarTopID));

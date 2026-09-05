@@ -19,6 +19,7 @@ public record Car
     public string RimsID { get; set; }
     public string LicensePlateID { get; set; }
     public string ColorID { get; set; }
+    public string Color2ID { get; set; }
     public string StickerID { get; set; }
     public string InteriorID { get; set; }
 

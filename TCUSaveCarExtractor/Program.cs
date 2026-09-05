@@ -112,7 +112,7 @@ internal class Program
                 car.RimsID = ConvertIndexToIDReversed(reader);
                 car.LicensePlateID = ConvertIndexToIDReversed(reader);
                 car.ColorID = ConvertIndexToIDReversed(reader);
-                stream.Seek(2, SeekOrigin.Current);
+                car.Color2ID = ConvertIndexToIDReversed(reader);
                 car.StickerID = ConvertIndexToIDReversed(reader);
                 car.InteriorID = ConvertIndexToIDReversed(reader);
 
