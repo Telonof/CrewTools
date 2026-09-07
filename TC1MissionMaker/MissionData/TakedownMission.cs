@@ -51,6 +51,10 @@ namespace TC1MissionMaker.MissionData
             //player speed on spawn
             time = XMLUtil.GrabFloatOrDefault(_missionData, "playerSpawnSpeed", 0);
             GenerateFloatElement("0D7E44B7", time);
+            
+            //Theoretically it should make any road for bots asphalt internally. Bots do better on dirt/icy roads with it true.
+            bool asphaltAlways = XMLUtil.GrabBoolOrDefault(_missionData, "forceAsphaltForBot");
+            GenerateFullBoolElement("70160000", "00F804C600005643", asphaltAlways);
 
             //seems to turn off random health scaling (or at least one of them)
             GenerateFullFloatElement("01140000", "00004EC400804045", 0);

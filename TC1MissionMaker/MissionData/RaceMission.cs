@@ -74,6 +74,10 @@ namespace TC1MissionMaker.MissionData
             bool savedBoolValue = XMLUtil.GrabBoolOrDefault(_missionData, "disablePedestrian");
             GenerateFullBoolElement("B51A0000", "0000FDC400804545", !savedBoolValue);
 
+            //Theoretically it should make any road for bots asphalt internally. Bots do better on dirt/icy roads with it true.
+            savedBoolValue = XMLUtil.GrabBoolOrDefault(_missionData, "forceAsphaltForBot");
+            GenerateFullBoolElement("D91B0000", "00C0FEC50000BDC4", savedBoolValue);
+
             //police stars
             value = XMLUtil.GrabIntOrDefault(_missionData, "stars", 1, true);
             GenerateFullFloatElement("68190000", "00F04DC50068F345", (float)value);
