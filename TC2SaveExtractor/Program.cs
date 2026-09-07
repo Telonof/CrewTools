@@ -6,6 +6,7 @@ using System.Text.Json;
 using System.Xml.Linq;
 using System.Xml.XPath;
 using CrewToolsCommon.Utilities;
+using Gibbed.ProjectData;
 
 namespace TC2SaveExtractor;
 
@@ -48,8 +49,10 @@ internal class Program
         }
 
         //Load data needed for binary object names
-        var manager = Gibbed.ProjectData.Manager.Load().ActiveProject.ListsPath;
-        var infoManager = InfoManager.Load(manager);
+        Manager manager = Manager.Load();
+        HashFinder.Load(manager);
+        string projectPath = Manager.Load().ActiveProject.ListsPath;
+        var infoManager = InfoManager.Load(projectPath);
 
         //compressed -> xml
         if (Path.GetExtension(args[0]) == ".bin")
