@@ -61,6 +61,14 @@ namespace TC1MissionMaker.MissionData
             //time given each checkpoint clear
             initialTime = XMLUtil.GrabFloatOrDefault(_missionData, "timePerCheckpoint", 10, true);
             GenerateFloatElement("7B37A6CF", initialTime);
+            
+            //passenger
+            string passenger = XMLUtil.GrabIDHex(_missionData, "carPassenger");
+            if (!string.IsNullOrWhiteSpace(passenger))
+            {
+                GenerateFullEntityListElement("40CDDA90", "E60A0000", "003409C600E00945", [Convert.FromHexString(passenger)]);
+                GenerateFullBoolElement("E70A0000", "00C411C600E00945", true);
+            }
 
             //police stars
             int value = XMLUtil.GrabIntOrDefault(_missionData, "stars", 1, true);

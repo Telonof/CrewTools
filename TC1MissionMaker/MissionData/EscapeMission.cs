@@ -49,6 +49,14 @@ namespace TC1MissionMaker.MissionData
             //Are they cops or enemies (gang members)
             bool gang = XMLUtil.GrabBoolOrDefault(_missionData, "gang", false);
             GenerateFullBoolElement("2F110000", "00802FC500006A44", gang);
+            
+            //passenger
+            string passenger = XMLUtil.GrabIDHex(_missionData, "carPassenger");
+            if (!string.IsNullOrWhiteSpace(passenger))
+            {
+                GenerateFullEntityListElement("40CDDA90", "21120000", "009800C600308D45", [Convert.FromHexString(passenger)]);
+                GenerateFullBoolElement("22120000", "002809C600308D45", true);
+            }
 
             //unknown
             GenerateFullEntityElement("5EF477AA", "68110000", "008000C50000B4C3", BitConverter.GetBytes(_spawnpointId));

@@ -57,6 +57,14 @@ namespace TC1MissionMaker.MissionData
                 GenerateFullBoolElement("01260000", "0000A3440000A7C4", true);
             else
                 RemoveField(_scriptingNode, "MissionStopLifeRegen");
+            
+            //passenger
+            string passenger = XMLUtil.GrabIDHex(_missionData, "carPassenger");
+            if (!string.IsNullOrWhiteSpace(passenger))
+            {
+                GenerateFullEntityListElement("40CDDA90", "7B250000", "007008C60000EC44", [Convert.FromHexString(passenger)]);
+                GenerateFullBoolElement("79250000", "000011C60000EC44", true);
+            }
 
             //unknown, but needed for proper spawn point
             GenerateFullEntityElement("5EF477AA", "24250000", "002003C600802345", BitConverter.GetBytes(_spawnpointId));
