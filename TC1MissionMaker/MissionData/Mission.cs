@@ -602,13 +602,14 @@ internal abstract class Mission
         if (value.Equals("none", StringComparison.InvariantCultureIgnoreCase))
             value = "FFFFFFFFFFFFFFFF";
 
+        //hitting the finish line
         if (!string.IsNullOrWhiteSpace(value) && value.Length == 16)
-        {
-            //hitting the finish line
             GenerateFullEntityElement(_mission.Type.Settings.FinishIds[0], _mission.Type.Settings.FinishIds[1], _mission.Type.Settings.FinishIds[2], Convert.FromHexString(value));
-            //camera rotation
+        
+        //camera rotation
+        bool waitingForOthers = XMLUtil.GrabBoolOrDefault(rewardMovieData, "keepWaitingForOthersAnimation");
+        if (!waitingForOthers && !string.IsNullOrWhiteSpace(value) && value.Length == 16)
             GenerateFullEntityElement(_mission.Type.Settings.FinishIds[3], _mission.Type.Settings.FinishIds[4], _mission.Type.Settings.FinishIds[5], Convert.FromHexString("FFFFFFFFFFFFFFFF"));
-        }
 
         //3-4 finish
         value = XMLUtil.GrabStringOrDefault(rewardMovieData, "rewardView");
