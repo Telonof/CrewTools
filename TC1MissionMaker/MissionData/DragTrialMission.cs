@@ -20,10 +20,23 @@ namespace TC1MissionMaker.MissionData
             GenerateAtomElement("D975D698", "A273673B", BitConverter.GetBytes(id));
         }
 
+        public override bool ParseInstantStart(bool instant)
+        {
+            if (instant)
+                GenerateFullEntityElement("3D549BD4", "5C3C0000", "0020FCC400801544", Convert.FromHexString("FFFFFFFFFFFFFFFF"));
+
+            return instant;
+        }
+
+        public override void ParseTTOG(string entity)
+        {
+            GenerateFullEntityElement("3D549BD4", "5C3C0000", "0020FCC400801544", Convert.FromHexString(entity));
+        }
+        
         public override void MissionSpecific()
         {
             byte[][] posData = GenerateCheckpointEntity("6BF8160000000000");
-            GenerateRewardMovie(posData);
+            GenerateRewardMovie(posData, true);
             GenerateSpawnpointEntity();
 
             //how much trials should be set for the mission.
@@ -38,19 +51,6 @@ namespace TC1MissionMaker.MissionData
             bool disableCarSelect = XMLUtil.GrabBoolOrDefault(_missionData, "disableCarSelectScreen");
             if (disableCarSelect)
                 GenerateBoolElement("81EAE5AF", disableCarSelect);
-        }
-
-        public override bool ParseInstantStart(bool instant)
-        {
-            if (instant)
-                GenerateFullEntityElement("3D549BD4", "5C3C0000", "0020FCC400801544", Convert.FromHexString("FFFFFFFFFFFFFFFF"));
-
-            return instant;
-        }
-
-        public override void ParseTTOG(string entity)
-        {
-            GenerateFullEntityElement("3D549BD4", "5C3C0000", "0020FCC400801544", Convert.FromHexString(entity));
         }
     }
 }

@@ -139,7 +139,7 @@ internal abstract class Mission
         }
     }
 
-    protected void GenerateRewardMovie(byte[][]? lastPositionData)
+    protected void GenerateRewardMovie(byte[][]? lastPositionData, bool drag = false)
     {
         XElement rewardMovieData = _missionData.Element("rewardMovie");
 
@@ -182,6 +182,12 @@ internal abstract class Mission
 
         //link to settings
         GenerateEntityElement("5EF477AA", "AD5CED4C", BitConverter.GetBytes(id));
+
+        if (!drag)
+            return;
+        
+        GenerateFullEntityListElement("D1FB81EA", "5C050000", "0060094600002843", [BitConverter.GetBytes(id)]);
+        GenerateFullEntityListElement("D1FB81EA", "711E0000", "00A0B9C400D8CB45", [BitConverter.GetBytes(id)], "993E7E7B");
     }
 
     protected float GetTimeMod(float time)
@@ -607,7 +613,7 @@ internal abstract class Mission
             GenerateFullEntityElement(_mission.Type.Settings.FinishIds[0], _mission.Type.Settings.FinishIds[1], _mission.Type.Settings.FinishIds[2], Convert.FromHexString(value));
         
         //camera rotation
-        bool waitingForOthers = XMLUtil.GrabBoolOrDefault(rewardMovieData, "keepWaitingForOthersAnimation");
+        bool waitingForOthers = XMLUtil.GrabBoolOrDefault(rewardMovieData, "keepMultiplayerWait");
         if (!waitingForOthers && !string.IsNullOrWhiteSpace(value) && value.Length == 16)
             GenerateFullEntityElement(_mission.Type.Settings.FinishIds[3], _mission.Type.Settings.FinishIds[4], _mission.Type.Settings.FinishIds[5], Convert.FromHexString("FFFFFFFFFFFFFFFF"));
 
