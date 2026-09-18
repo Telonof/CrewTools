@@ -48,6 +48,19 @@ BC24840700000000 - Larger jumbo jet
 ED66850700000000 - Blue seaplane
 EE66850700000000 - Red seaplane
 
+[Passengers]
+09FE860700000000 - Alex with no seat belt
+625E870700000000 - Alex with seat belt
+31AA8D0700000000 - Alita
+32AA8D0700000000 - Cam
+34AA8D0700000000 - Dayton
+36AA8D0700000000 - Harry
+37AA8D0700000000 - Herschel Craig
+38AA8D0700000000 - Roxanne
+39AA8D0700000000 - Vincent
+3AAA8D0700000000 - Troy
+3CAA8D0700000000 - Woman (Seen in Family Matters)
+
 [Misc]
 943A940700000000 - Big WR tower with logos
 A8F8850700000000 - Movable Scaffolding
