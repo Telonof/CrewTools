@@ -58,13 +58,9 @@ public class StringData : ModFile
     //game stores strings with 00's between each character.
     private byte[] ConvertToLocalizationString(string input)
     {
-        byte[] str = Encoding.UTF8.GetBytes(input);
-        byte[] locStr = new byte[(str.Length * 2) + 2];
-        for (int i = 0; i < str.Length; i++)
-        {
-            locStr[i * 2] = str[i];
-            locStr[(i * 2) + 1] = 0;
-        }
+        byte[] str = Encoding.Unicode.GetBytes(input);
+        byte[] locStr = new byte[str.Length + 2];
+        Buffer.BlockCopy(str, 0, locStr, 0, str.Length);
 
         return locStr;
     }
